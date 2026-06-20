@@ -1,0 +1,525 @@
+:root {
+  --bg-primary: white;
+  --bg-secondary: white;
+  --bg-tertiary: white;
+  --bg-navbar: white;
+  --bg-sidebar: white;
+  --bg-footer: white;
+  --bg-page-card: white;
+  --bg-button: midnightblue;
+  --text-primary: midnightblue;
+  --text-secondary: #32327a;
+  --text-tertiary: whitesmoke;
+  --text-button: white;
+  --border-primary: rgb(235, 233, 233);
+  --border-secondary: rgb(235, 233, 233);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --icon-color: midnightblue;
+  --hamburger-color: midnightblue;
+  --banner-overlay: #0b1e3a;
+  --divider-color: rgb(235, 233, 233);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #161616;
+  --bg-secondary: black;
+  --bg-tertiary: #1a1a1a;
+  --bg-navbar: black;
+  --bg-sidebar: black;
+  --bg-footer: black;
+  --bg-page-card: #1a1a1a;
+  --bg-button: midnightblue;
+  --text-primary: whitesmoke;
+  --text-secondary: whitesmoke;
+  --text-tertiary: whitesmoke;
+  --text-button: white;
+  --border-primary: #1a1a1a;
+  --border-secondary: #1a1a1a;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --icon-color: whitesmoke;
+  --hamburger-color: whitesmoke;
+  --banner-overlay: #000000;
+  --divider-color: #1a1a1a;
+}
+
+/* Page Card Styles */
+.page-card-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  animation: fadeInDown;
+  animation-duration: 1s;
+  margin-bottom: 40px;
+}
+
+.page-card {
+  height: 380px;
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  border: 1px solid var(--border-primary);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  background-color: var(--bg-page-card);
+}
+
+.page-card:active {
+  transform: scale(0.99);
+  transform-origin: center;
+}
+
+.page-card h2 {
+  font-family: "Inter", sans-serif;
+  color: var(--text-primary);
+  font-size: 18px;
+}
+
+.page-card p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  text-align: left;
+  letter-spacing: 0.01em;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+.page-card p + p {
+  margin-top: 0.9em;
+}
+
+/* Andromeda Banner */
+.andromeda-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  margin-right: 20px;
+}
+
+.andromeda-banner h1 {
+  font-family: "Inter", sans-serif;
+  color: var(--text-primary);
+}
+
+.andromeda-banner h2 {
+  font-family: "Inter", sans-serif;
+  color: var(--text-primary);
+}
+
+/* Screenshot Wrappers */
+.andromeda-screenshot-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+/* Space (Andromeda) Screenshots */
+.andromeda-screenshot-notes {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/andromeda-notes-one.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.theory-banner-white {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/white-banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.theory-drawing-one {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/draw-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.theory-drawing-two {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/draw-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.theory-banner-dark {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/banner-dark.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-notes-open {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/andromeda-notes-two.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+  background-color: white;
+}
+
+.andromeda-screenshot-todo {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/andromeda-todo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-todo-open {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/andromeda-todo-two.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-calendar {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/andromeda-calendar-month.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-calendar-two {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/andromeda-calendar-year.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-mindmap {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/andromeda-screenshot-mindmap.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-mindmap-two {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/andromeda-screenshot-mindmap-two.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+/* Proxima Calculator Screenshots */
+.andromeda-screenshot-proxima-one {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/calculator-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-proxima-two {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/calculator-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+  background-color: white;
+}
+
+.andromeda-screenshot-proxima-three {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/calc-hist-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-proxima-four {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/calc-hist-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-proxima-five {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/calc-modes.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-proxima-six {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/calc-age-calc.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-proxima-seven {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/calc-perc-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.andromeda-screenshot-proxima-eight {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/calc-perc-2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+/* ScratchPad Screenshots */
+.scratchpad-banner-one {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/scrhpad1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+.scratchpad-banner-two {
+  width: 20%;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/scrhpad2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow:
+    0 10px 20px var(--shadow-color),
+    0 6px 6px var(--shadow-color);
+}
+
+/* Get Button */
+.get-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* How to Install Section */
+.how-to-install-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.step-one {
+  height: 250px;
+  width: 250px;
+}
+
+.step-two {
+  height: 250px;
+  width: 250px;
+}
+
+/* Contact Button (used as Try button) */
+.contactButton {
+  background: var(--bg-button);
+  color: var(--text-button);
+  font-family: "Inter", sans-serif;
+  padding: 0.45em;
+  padding-left: 1em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3em;
+}
+
+.iconButton {
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  background-color: whitesmoke;
+  color: midnightblue;
+  border-radius: 0.7em;
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.contactButton:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em #5566c2;
+}
+
+.contactButton:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em #5566c2;
+}
+
+/* Global transitions for theme switching */
+* {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  transition:
+    background-color 0s ease,
+    color 0s ease,
+    border-color 0s ease,
+    box-shadow 0s ease;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .page-card {
+    height: 410px;
+    max-width: 300px;
+    padding: 18px;
+  }
+
+  .page-card p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .andromeda-screenshot-notes,
+  .andromeda-screenshot-notes-open,
+  .andromeda-screenshot-todo,
+  .andromeda-screenshot-todo-open,
+  .andromeda-screenshot-calendar,
+  .andromeda-screenshot-calendar-two,
+  .andromeda-screenshot-mindmap,
+  .andromeda-screenshot-mindmap-two,
+  .andromeda-screenshot-proxima-one,
+  .andromeda-screenshot-proxima-two,
+  .andromeda-screenshot-proxima-three,
+  .andromeda-screenshot-proxima-four,
+  .andromeda-screenshot-proxima-five,
+  .andromeda-screenshot-proxima-six,
+  .andromeda-screenshot-proxima-seven,
+  .andromeda-screenshot-proxima-eight,
+  .scratchpad-banner-one,
+  .scratchpad-banner-two,
+  .theory-banner-dark,
+  .theory-banner-white,
+  .theory-drawing-one,
+  .theory-drawing-two {
+    width: 35%;
+  }
+
+  .step-one img {
+    height: 150px !important;
+    width: 150px !important;
+  }
+
+  .how-to-install-div {
+    justify-content: center;
+  }
+}
