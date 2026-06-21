@@ -448,7 +448,7 @@ h1 {
   color: #000033;
   margin-left: 20px;
   font-family: "Smooch Sans", sans-serif;
-  font-size: 44px;
+  font-size: 30px;
 }
 
 .play-button {
@@ -2450,7 +2450,7 @@ ul {
   }
 
   .logo p {
-    font-size: 38px;
+    font-size: 24px;
   }
 
   .song-name {
