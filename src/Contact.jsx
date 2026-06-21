@@ -3,9 +3,6 @@ function Contact() {
     <>
       <div className="container-contact">
         <div className="block-one">
-          <div className="heading-contact-text">
-            <p>CONTACT</p>
-          </div>
           <div className="heading-blockone">
             <h1>Let's build</h1>
             <h1>something great</h1>
@@ -63,13 +60,13 @@ function Contact() {
             </div>
           </div>
 
-          <div className="social-icons">
+          {/* <div className="social-icons">
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-x-twitter"></i>
             <i class="fa-brands fa-square-instagram"></i>
 
             <i class="fa-brands fa-discord"></i>
-          </div>
+          </div> */}
         </div>
         <div className="block-two">
           <div className="name-and-mail-wrapper">
@@ -90,14 +87,7 @@ function Contact() {
               />
             </div>
           </div>
-          <div className="flex-field">
-            <p>Subject</p>
-            <input
-              type="text"
-              placeholder="Enter subject"
-              className="header-input-subject"
-            />
-          </div>
+
           <div className="flex-field">
             <p>Message</p>
             <textarea type="text" className="header-input-textarea" />
