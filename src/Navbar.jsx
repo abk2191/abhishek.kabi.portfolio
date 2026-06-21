@@ -43,7 +43,7 @@ const Navbar = ({
           <div style={{ cursor: "pointer" }}>
             <p>ABHISHEK KABI</p>
           </div>
-          <div>
+          <div style={{ marginLeft: "12px" }}>
             <MusicPlayer />
           </div>
         </div>
