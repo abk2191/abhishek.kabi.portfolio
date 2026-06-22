@@ -46,163 +46,24 @@ function Andromeda({
                 <i class="fa-solid fa-angle-left"></i>
               </button>
             ) : (
-              <div style={{ marginLeft: "30px" }}></div>
+              <div style={{ marginRight: "30px" }}></div>
             )}
+
             <div className="carousal-inner">
-              {imageId === 1 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img src="/white-banner.jpg" style={{ height: "400px" }} />
-                </div>
-              )}
-              {imageId === 2 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img src="/banner-dark.jpg" style={{ height: "400px" }} />
-                </div>
-              )}
-              {imageId === 3 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img
-                    src="/andromeda-notes-one.jpg"
-                    style={{ height: "400px" }}
-                  />
-                </div>
-              )}
-              {imageId === 4 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img
-                    src="/andromeda-notes-two.jpg"
-                    style={{ height: "400px" }}
-                  />
-                </div>
-              )}
-              {imageId === 5 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img src="/andromeda-todo.jpg" style={{ height: "400px" }} />
-                </div>
-              )}
-              {imageId === 6 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img
-                    src="/andromeda-todo-two.jpg"
-                    style={{ height: "400px" }}
-                  />
-                </div>
-              )}
-              {imageId === 7 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img src="/draw-1.jpg" style={{ height: "400px" }} />
-                </div>
-              )}
-              {imageId === 8 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img src="/draw-2.jpg" style={{ height: "400px" }} />
-                </div>
-              )}
-              {imageId === 9 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img
-                    src="/andromeda-calendar-month.jpg"
-                    style={{ height: "400px" }}
-                  />
-                </div>
-              )}
-              {imageId === 10 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img
-                    src="/andromeda-calendar-year.jpg"
-                    style={{ height: "400px" }}
-                  />
-                </div>
-              )}
-              {imageId === 11 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img
-                    src="/andromeda-screenshot-mindmap.jpg"
-                    style={{ height: "400px" }}
-                  />
-                </div>
-              )}
-              {imageId === 12 && (
-                <div
-                  className={`animate__animated animation_fast ${
-                    buttonId === "left"
-                      ? "animate__slideInLeft"
-                      : "animate__slideInRight"
-                  }`}
-                >
-                  <img
-                    src="/andromeda-screenshot-mindmap-two.jpg"
-                    style={{ height: "400px" }}
-                  />
-                </div>
-              )}
+              {imageId === 1 && <div className="carousal-images" />}
+              {imageId === 2 && <div className="carousal-images-2" />}
+              {imageId === 3 && <div className="carousal-images-3" />}
+              {imageId === 4 && <div className="carousal-images-4" />}
+              {imageId === 5 && <div className="carousal-images-5" />}
+              {imageId === 6 && <div className="carousal-images-6" />}
+              {imageId === 7 && <div className="carousal-images-7" />}
+              {imageId === 8 && <div className="carousal-images-8" />}
+              {imageId === 9 && <div className="carousal-images-9" />}
+              {imageId === 10 && <div className="carousal-images-10" />}
+              {imageId === 11 && <div className="carousal-images-11" />}
+              {imageId === 12 && <div className="carousal-images-12" />}
             </div>
+
             {imageId < 12 ? (
               <button
                 className="carousal-button"
@@ -211,7 +72,7 @@ function Andromeda({
                 <i class="fa-solid fa-chevron-right"></i>
               </button>
             ) : (
-              <div style={{ marginLeft: "30px" }}></div>
+              <div style={{ marginRight: "28px" }}></div>
             )}
           </div>
 
