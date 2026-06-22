@@ -13,13 +13,18 @@ function Andromeda({
 }) {
   // const [showDownloadPage, setShowDownloadPage] = useState(false);
   // const [currentButtonID, setCurrentButtonId] = useState("");
+  const [imageId, setImageId] = useState(1);
+  const [buttonId, setButtonId] = useState("");
+
+  const handleButtonClick = (id) => {
+    id === "left"
+      ? setImageId((prev) => (prev > 1 ? prev - 1 : prev))
+      : setImageId((prev) => (prev < 12 ? prev + 1 : prev));
+
+    id === "left" ? setButtonId("left") : setButtonId("right");
+  };
 
   const handleClick = (id) => {
-    // window.open(
-    //   "https://abk2191.github.io/andromeda/notes",
-    //   "_blank",
-    //   "noopener,noreferrer",
-    // );
     setShowDownloadPage(true);
     setCurrentButtonId(id);
     setTryButtonClicked(id);
@@ -32,13 +37,190 @@ function Andromeda({
             <img src="/theory.png" style={{ height: "75px", width: "75px" }} />
             <h2>Theory</h2>
           </div>
-
-          <div className="andromeda-screenshot-wrapper">
-            <div className="theory-banner-white"></div>
-            <div className="theory-banner-dark"></div>
+          <div className="carousal-div">
+            {imageId > 1 ? (
+              <button
+                className="carousal-button"
+                onClick={() => handleButtonClick("left")}
+              >
+                <i class="fa-solid fa-angle-left"></i>
+              </button>
+            ) : (
+              <div style={{ marginLeft: "30px" }}></div>
+            )}
+            <div className="carousal-inner">
+              {imageId === 1 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img src="/white-banner.jpg" style={{ height: "400px" }} />
+                </div>
+              )}
+              {imageId === 2 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img src="/banner-dark.jpg" style={{ height: "400px" }} />
+                </div>
+              )}
+              {imageId === 3 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img
+                    src="/andromeda-notes-one.jpg"
+                    style={{ height: "400px" }}
+                  />
+                </div>
+              )}
+              {imageId === 4 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img
+                    src="/andromeda-notes-two.jpg"
+                    style={{ height: "400px" }}
+                  />
+                </div>
+              )}
+              {imageId === 5 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img src="/andromeda-todo.jpg" style={{ height: "400px" }} />
+                </div>
+              )}
+              {imageId === 6 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img
+                    src="/andromeda-todo-two.jpg"
+                    style={{ height: "400px" }}
+                  />
+                </div>
+              )}
+              {imageId === 7 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img src="/draw-1.jpg" style={{ height: "400px" }} />
+                </div>
+              )}
+              {imageId === 8 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img src="/draw-2.jpg" style={{ height: "400px" }} />
+                </div>
+              )}
+              {imageId === 9 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img
+                    src="/andromeda-calendar-month.jpg"
+                    style={{ height: "400px" }}
+                  />
+                </div>
+              )}
+              {imageId === 10 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img
+                    src="/andromeda-calendar-year.jpg"
+                    style={{ height: "400px" }}
+                  />
+                </div>
+              )}
+              {imageId === 11 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img
+                    src="/andromeda-screenshot-mindmap.jpg"
+                    style={{ height: "400px" }}
+                  />
+                </div>
+              )}
+              {imageId === 12 && (
+                <div
+                  className={`animate__animated animation_fast ${
+                    buttonId === "left"
+                      ? "animate__slideInLeft"
+                      : "animate__slideInRight"
+                  }`}
+                >
+                  <img
+                    src="/andromeda-screenshot-mindmap-two.jpg"
+                    style={{ height: "400px" }}
+                  />
+                </div>
+              )}
+            </div>
+            {imageId < 12 ? (
+              <button
+                className="carousal-button"
+                onClick={() => handleButtonClick("right")}
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            ) : (
+              <div style={{ marginLeft: "30px" }}></div>
+            )}
           </div>
 
-          <div className="page-card-div">
+          {/* <div className="andromeda-screenshot-wrapper">
+            <div className="theory-banner-white"></div>
+            <div className="theory-banner-dark"></div>
+          </div> */}
+
+          {/* <div className="page-card-div">
             <div className="page-card">
               <p>
                 Theory. is a thoughtful productivity space designed to help you
@@ -81,21 +263,7 @@ function Andromeda({
             <div className="andromeda-screenshot-notes-open"></div>
           </div>
 
-          {/* <div className="page-card-div">
-          <div className="page-card">
-            <h2>NOTES</h2>
-            <p>
-              To help you stay centered as you capture your thoughts, Andromeda
-              offers a beautifully simple space to organize your notes. <br />
-              <br />
-              You can easily prioritize your ideas by pinning or unpinning them,
-              ensuring your most important tasks always remain on track. <br />
-              <br /> To make the experience truly yours, you can also customize
-              your workspace with a variety of beautiful colors for a more
-              personal, intentional feel.
-            </p>
-          </div>
-        </div> */}
+          
 
           <div className="page-card-div">
             <div className="page-card">
@@ -180,7 +348,7 @@ function Andromeda({
           <div className="andromeda-screenshot-wrapper">
             <div className="andromeda-screenshot-mindmap"></div>
             <div className="andromeda-screenshot-mindmap-two"></div>
-          </div>
+          </div> */}
 
           <div className="get-button">
             <button

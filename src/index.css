@@ -56,11 +56,15 @@
   --counter-text-new: #1e40af;
   --counter-full-color: #1e40af; /* Blue when counter = 50 */
   --counter-warning-color: black; /* Red when counter < 50 */
+  --carousal-button-color: black;
+  --carousal-button-color-button: white;
 }
 
 /* Dark theme - black background */
 
 [data-theme="dark"] {
+  --carousal-button-color-button: black;
+  --carousal-button-color: white;
   --counter-full-color: greenyellow; /* Green/yellow when counter = 50 */
   --counter-warning-color: white; /* Gold when counter < 50 */
   --counter-color-dvdr: rgb(57, 57, 57);
@@ -1761,9 +1765,50 @@ ul {
   color: #475569 !important;
 }
 
+.carousal-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  padding: 20px;
+}
+
+.carousal-inner {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  justify-content: center;
+  gap: 20px;
+}
+
+.animation_fast {
+  animation-duration: 0.7s;
+}
+
+.carousal-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--carousal-button-color-button);
+  opacity: 0.5;
+  background-color: var(--carousal-button-color);
+  border: 1px solid var(--carousal-button-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  justify-content: center;
+}
+
 /************************************************************/
 
 @media (max-width: 768px) {
+  .carousal-div {
+    gap: 40px;
+  }
+
   .heading-blockone {
     margin-top: -200px;
   }
