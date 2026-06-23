@@ -1775,176 +1775,167 @@ ul {
 
 .carousal-inner {
   display: flex;
-  align-items: center;
-  width: 200px;
+  width: 180px;
+  height: auto;
+  gap: 200px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
   object-fit: contain;
-  justify-content: center;
-  overflow: hidden;
-  box-shadow:
-    /* 0 20px 60px rgba(0, 0, 0, 0.3),
+  pointer-events: none;
+  flex-shrink: 0;
+
+  scroll-snap-align: center;
+
+  /* 0 20px 60px rgba(0, 0, 0, 0.3),
     0 10px 20px rgba(0, 0, 0, 0.2),
     0 4px 8px rgba(0, 0, 0, 0.1); */
-    0 20px 60px rgba(255, 215, 0, 0.25),
+  /* 0 20px 60px rgba(255, 215, 0, 0.25),
     0 10px 20px rgba(255, 215, 0, 0.18),
     0 4px 8px rgba(255, 215, 0, 0.1),
-    0 0 50px rgba(255, 215, 0, 0.08);
-  transition: all 0.3s ease;
+    0 0 50px rgba(255, 215, 0, 0.08); */
+}
+
+.carousal-images,
+.carousal-images-2,
+.carousal-images-3,
+.carousal-images-4,
+.carousal-images-5,
+.carousal-images-6,
+.carousal-images-7,
+.carousal-images-8,
+.carousal-images-9,
+.carousal-images-10,
+.carousal-images-11,
+.carousal-images-12 {
+  scroll-snap-align: center;
 }
 
 .carousal-images {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/white-banner.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
+  /* 0 20px 60px rgba(255, 215, 0, 0.25),
+    0 10px 20px rgba(255, 215, 0, 0.18),
+    0 4px 8px rgba(255, 215, 0, 0.1),
+    0 0 50px rgba(255, 215, 0, 0.08); */
+  margin-left: 150px;
 }
 
 .carousal-images-2 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/banner-dark.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-3 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/andromeda-notes-one.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-4 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/andromeda-notes-two.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-5 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/andromeda-todo.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-6 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/andromeda-todo-two.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-7 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/draw-1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-8 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/draw-2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-9 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/andromeda-calendar-month.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-10 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/andromeda-calendar-year.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-11 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/andromeda-screenshot-mindmap.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
 }
 
 .carousal-images-12 {
   width: 100%;
-  height: auto;
+  height: 400px;
   aspect-ratio: 9 / 19.5;
   background-image: url("/andromeda-screenshot-mindmap-two.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow:
-    0 10px 20px var(--shadow-color),
-    0 6px 6px var(--shadow-color);
+
+  margin-right: 170px;
 }
 
 .animation_fast {

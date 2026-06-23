@@ -1,5 +1,5 @@
 import "./project-styles.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import DownloadPage from "./DownloadPage";
 
 function Andromeda({
@@ -11,10 +11,25 @@ function Andromeda({
   setTryButtonClicked,
   tryButtonClicked,
 }) {
-  // const [showDownloadPage, setShowDownloadPage] = useState(false);
-  // const [currentButtonID, setCurrentButtonId] = useState("");
+  const carouselImageUrls = [
+    "/white-banner.jpg",
+    "/banner-dark.jpg",
+    "/andromeda-notes-one.jpg",
+    "/andromeda-notes-two.jpg",
+    "/andromeda-todo.jpg",
+    "/andromeda-todo-two.jpg",
+    "/draw-1.jpg",
+    "/draw-2.jpg",
+    "/andromeda-calendar-month.jpg",
+    "/andromeda-calendar-year.jpg",
+    "/andromeda-screenshot-mindmap.jpg",
+    "/andromeda-screenshot-mindmap-two.jpg",
+  ];
+
   const [imageId, setImageId] = useState(1);
   const [buttonId, setButtonId] = useState("");
+  const [current, setCurrent] = useState(0);
+  const refs = useRef([]);
 
   const handleButtonClick = (id) => {
     id === "left"
@@ -29,6 +44,32 @@ function Andromeda({
     setCurrentButtonId(id);
     setTryButtonClicked(id);
   };
+
+  const moveRight = () => {
+    setImageId((prev) => prev + 1);
+    const next = Math.min(current + 1, carouselImageUrls.length - 1);
+
+    setCurrent(next);
+
+    refs.current[next]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  };
+
+  const moveLeft = () => {
+    setImageId((prev) => prev - 1);
+    const prev = Math.max(current - 1, 0);
+
+    setCurrent(prev);
+
+    refs.current[prev]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  };
   return (
     <>
       {!showDownloadPage && (
@@ -39,36 +80,27 @@ function Andromeda({
           </div>
           <div className="carousal-div">
             {imageId > 1 ? (
-              <button
-                className="carousal-button"
-                onClick={() => handleButtonClick("left")}
-              >
+              <button className="carousal-button" onClick={() => moveLeft()}>
                 <i class="fa-solid fa-angle-left"></i>
               </button>
             ) : (
               <div style={{ marginRight: "30px" }}></div>
             )}
 
-            <div className="carousal-inner">
-              {imageId === 1 && <div className="carousal-images" />}
-              {imageId === 2 && <div className="carousal-images-2" />}
-              {imageId === 3 && <div className="carousal-images-3" />}
-              {imageId === 4 && <div className="carousal-images-4" />}
-              {imageId === 5 && <div className="carousal-images-5" />}
-              {imageId === 6 && <div className="carousal-images-6" />}
-              {imageId === 7 && <div className="carousal-images-7" />}
-              {imageId === 8 && <div className="carousal-images-8" />}
-              {imageId === 9 && <div className="carousal-images-9" />}
-              {imageId === 10 && <div className="carousal-images-10" />}
-              {imageId === 11 && <div className="carousal-images-11" />}
-              {imageId === 12 && <div className="carousal-images-12" />}
+            <div className="overlayy">
+              <div className="carousal-inner">
+                {carouselImageUrls.map((url, index) => (
+                  <div
+                    key={index}
+                    ref={(el) => (refs.current[index] = el)}
+                    className={`carousal-images${index === 0 ? "" : `-${index + 1}`}`}
+                  />
+                ))}
+              </div>
             </div>
 
             {imageId < 12 ? (
-              <button
-                className="carousal-button"
-                onClick={() => handleButtonClick("right")}
-              >
+              <button className="carousal-button" onClick={() => moveRight()}>
                 <i class="fa-solid fa-chevron-right"></i>
               </button>
             ) : (
