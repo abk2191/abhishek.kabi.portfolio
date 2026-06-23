@@ -76,9 +76,7 @@ const Sidebar = ({
             style={{ cursor: "pointer" }}
           >
             <i className="fa-solid fa-circle-user"></i>
-            <p>
-              Profile <span style={{ fontSize: "12px" }}>(Facebook)</span>{" "}
-            </p>
+            <p>Profile</p>
           </div>
 
           <div className="flex-box-one">
@@ -282,7 +280,7 @@ const Sidebar = ({
           
         </div> */}
         <div className="place-hldr"></div>
-        <div className="source-code-div-wrapper">
+        {/* <div className="source-code-div-wrapper">
           <div
             className="source-code-div"
             onClick={() => handleNavigation("/sourcecode")}
@@ -295,7 +293,7 @@ const Sidebar = ({
               <i class="fa-brands fa-react"></i>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="place-hldr"></div>
         <div className="source-code-div-wrapper-2">
           <div
