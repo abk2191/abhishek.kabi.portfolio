@@ -29,7 +29,12 @@ function Andromeda({
   const [imageId, setImageId] = useState(1);
   const [buttonId, setButtonId] = useState("");
   const [current, setCurrent] = useState(0);
+  const [homeScreenVisible, setHomeScreenVisible] = useState(true);
   const refs = useRef([]);
+
+  const handleHomeClick = (id) => {
+    id === "icon" ? setHomeScreenVisible(false) : setHomeScreenVisible(true);
+  };
 
   const handleButtonClick = (id) => {
     id === "left"
@@ -80,23 +85,42 @@ function Andromeda({
           </div>
           <div className="carousal-div">
             <div className="overlayy">
-              {imageId > 1 ? (
+              {imageId > 1 && !homeScreenVisible ? (
                 <button className="carousal-button" onClick={() => moveLeft()}>
                   <i class="fa-solid fa-angle-left"></i>
                 </button>
               ) : (
                 <div style={{ marginRight: "30px" }}></div>
               )}{" "}
-              <div className="carousal-inner">
-                {carouselImageUrls.map((url, index) => (
-                  <div
-                    key={index}
-                    ref={(el) => (refs.current[index] = el)}
-                    className={`carousal-images${index === 0 ? "" : `-${index + 1}`}`}
-                  />
-                ))}
-              </div>{" "}
-              {imageId < 12 ? (
+              <div className="holder">
+                <div className="carousal-inner">
+                  {homeScreenVisible ? (
+                    <div
+                      className="homescreen-phone"
+                      onClick={() => handleHomeClick("icon")}
+                    ></div>
+                  ) : (
+                    carouselImageUrls.map((url, index) => (
+                      <div
+                        key={index}
+                        ref={(el) => (refs.current[index] = el)}
+                        className={`carousal-images${index === 0 ? "" : `-${index + 1}`}`}
+                      />
+                    ))
+                  )}
+                </div>{" "}
+                <div className="phone-nav">
+                  <div className="nav-icon-holder">
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i
+                      class="fa-solid fa-angle-left"
+                      onClick={() => handleHomeClick("back")}
+                    ></i>
+                  </div>
+                </div>
+              </div>
+              {imageId < 12 && !homeScreenVisible ? (
                 <button className="carousal-button" onClick={() => moveRight()}>
                   <i class="fa-solid fa-chevron-right"></i>
                 </button>
