@@ -114,7 +114,10 @@ function ProximaCalculator({
                 <div className="phone-nav">
                   <div className="nav-icon-holder">
                     <i class="fa-solid fa-bars"></i>
-                    <i class="fa-regular fa-circle"></i>
+                    <i
+                      class="fa-regular fa-circle"
+                      onClick={() => handleHomeClick("back")}
+                    ></i>
                     <i
                       class="fa-solid fa-angle-left"
                       onClick={() => handleHomeClick("back")}
