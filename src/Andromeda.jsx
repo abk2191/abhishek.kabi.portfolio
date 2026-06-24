@@ -98,7 +98,13 @@ function Andromeda({
                     <div
                       className="homescreen-phone"
                       onClick={() => handleHomeClick("icon")}
-                    ></div>
+                    >
+                      <img
+                        src="/theory-Copy.png"
+                        style={{ height: "70px", width: "70px" }}
+                        onClick={() => handleHomeClick("icon")}
+                      />
+                    </div>
                   ) : (
                     carouselImageUrls.map((url, index) => (
                       <div
