@@ -50,23 +50,25 @@
   --imagecont-bg: whitesmoke;
   --imagecont-brdr: rgb(240, 238, 238);
   --mvp-text: red;
-  /* --counter-color: #1e40af; */
   --tech-head-color: #1e3a8a;
   --counter-color-dvdr: black;
   --counter-text-new: #1e40af;
-  --counter-full-color: #1e40af; /* Blue when counter = 50 */
-  --counter-warning-color: black; /* Red when counter < 50 */
+  --counter-full-color: #1e40af;
+  --counter-warning-color: black;
   --carousal-button-color: black;
   --carousal-button-color-button: white;
+  --carousal-overlayy-back-color: rgb(228, 227, 227);
+  --border-color: rgb(128, 128, 128);
 }
 
 /* Dark theme - black background */
-
 [data-theme="dark"] {
+  --border-color: white;
+  --carousal-overlayy-back-color: rgb(45, 45, 45);
   --carousal-button-color-button: black;
   --carousal-button-color: white;
-  --counter-full-color: greenyellow; /* Green/yellow when counter = 50 */
-  --counter-warning-color: white; /* Gold when counter < 50 */
+  --counter-full-color: greenyellow;
+  --counter-warning-color: white;
   --counter-color-dvdr: rgb(57, 57, 57);
   --counter-text-new: greenyellow;
   --tech-head-color: greenyellow;
@@ -1784,16 +1786,11 @@ ul {
   object-fit: contain;
   pointer-events: none;
   flex-shrink: 0;
-
+  padding: 10px;
+  border: 1px solid red;
   scroll-snap-align: center;
-
-  /* 0 20px 60px rgba(0, 0, 0, 0.3),
-    0 10px 20px rgba(0, 0, 0, 0.2),
-    0 4px 8px rgba(0, 0, 0, 0.1); */
-  /* 0 20px 60px rgba(255, 215, 0, 0.25),
-    0 10px 20px rgba(255, 215, 0, 0.18),
-    0 4px 8px rgba(255, 215, 0, 0.1),
-    0 0 50px rgba(255, 215, 0, 0.08); */
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
 }
 
 .carousal-images,
@@ -1824,6 +1821,18 @@ ul {
     0 4px 8px rgba(255, 215, 0, 0.1),
     0 0 50px rgba(255, 215, 0, 0.08); */
   margin-left: 150px;
+}
+
+.overlayy {
+  background-color: red;
+  width: 100%;
+  gap: 30px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: var(--carousal-overlayy-back-color);
 }
 
 .carousal-images-2 {
@@ -1948,7 +1957,6 @@ ul {
   font-size: 20px;
   cursor: pointer;
   color: var(--carousal-button-color-button);
-  opacity: 0.5;
   background-color: var(--carousal-button-color);
   border: 1px solid var(--carousal-button-color);
   border-radius: 50%;
