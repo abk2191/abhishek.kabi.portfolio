@@ -58,12 +58,12 @@
   --carousal-button-color: black;
   --carousal-button-color-button: white;
   --carousal-overlayy-back-color: rgb(228, 227, 227);
-  --border-color: rgb(128, 128, 128);
+  --border-color-phone: rgb(164, 164, 164);
 }
 
 /* Dark theme - black background */
 [data-theme="dark"] {
-  --border-color: white;
+  --border-color-phone: rgb(109, 109, 109);
   --carousal-overlayy-back-color: rgb(45, 45, 45);
   --carousal-button-color-button: black;
   --carousal-button-color: white;
@@ -289,6 +289,24 @@ html {
   gap: 60px;
 
   margin-bottom: 50px;
+}
+
+.phone-nav {
+  background-color: transparent;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.nav-icon-holder i {
 }
 
 /***************************************************************************************/
@@ -1784,13 +1802,21 @@ ul {
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   object-fit: contain;
-  pointer-events: none;
+
   flex-shrink: 0;
-  padding: 10px;
-  border: 1px solid red;
+
   scroll-snap-align: center;
-  border: 2px solid var(--border-color);
+  /* border: 2px solid var(--border-color);
+  border-radius: 12px; */
+}
+
+.holder {
+  border: 2px solid var(--border-color-phone);
   border-radius: 12px;
+  padding: 10px;
+}
+
+.nav-icon-holder {
 }
 
 .carousal-images,
@@ -1806,6 +1832,20 @@ ul {
 .carousal-images-11,
 .carousal-images-12 {
   scroll-snap-align: center;
+}
+
+.homescreen-phone {
+  width: 100%;
+  height: 400px;
+  aspect-ratio: 9 / 19.5;
+  background-image: url("/beach-2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* 0 20px 60px rgba(255, 215, 0, 0.25),
+    0 10px 20px rgba(255, 215, 0, 0.18),
+    0 4px 8px rgba(255, 215, 0, 0.1),
+    0 0 50px rgba(255, 215, 0, 0.08); */
 }
 
 .carousal-images {
@@ -1826,6 +1866,7 @@ ul {
 .overlayy {
   background-color: red;
   width: 100%;
+  height: auto;
   gap: 30px;
   padding: 10px;
   display: flex;
