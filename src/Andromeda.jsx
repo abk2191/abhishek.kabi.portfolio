@@ -31,9 +31,16 @@ function Andromeda({
   const [current, setCurrent] = useState(0);
   const [homeScreenVisible, setHomeScreenVisible] = useState(true);
   const refs = useRef([]);
+  const carouselRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
 
   const handleHomeClick = (id) => {
     id === "icon" ? setHomeScreenVisible(false) : setHomeScreenVisible(true);
+    // Reset imageId when going back to homescreen
+    if (id === "back") {
+      setImageId(1);
+      setCurrent(0);
+    }
   };
 
   const handleButtonClick = (id) => {
@@ -75,25 +82,120 @@ function Andromeda({
       block: "nearest",
     });
   };
+
+  // Handle manual scroll
+  const handleScroll = () => {
+    if (!carouselRef.current || homeScreenVisible) return;
+
+    const container = carouselRef.current;
+    const scrollLeft = container.scrollLeft;
+    const containerWidth = container.clientWidth;
+
+    // Each image takes about 180px width + 200px gap = 380px total
+    const imageWidth = 180 + 200;
+    const centerOffset = scrollLeft + containerWidth / 2;
+    let newIndex = Math.round(centerOffset / imageWidth);
+
+    // Clamp the index
+    newIndex = Math.max(0, Math.min(carouselImageUrls.length - 1, newIndex));
+
+    // Only update if different from current
+    if (newIndex !== current) {
+      setCurrent(newIndex);
+      setImageId(newIndex + 1);
+    }
+  };
+
+  // Handle scroll end to ensure we snap to the correct image
+  const handleScrollEnd = () => {
+    if (!carouselRef.current || homeScreenVisible) return;
+
+    // Clear any existing timeout
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    // Wait for scroll to completely stop before snapping
+    scrollTimeoutRef.current = setTimeout(() => {
+      const container = carouselRef.current;
+      if (!container) return;
+
+      const scrollLeft = container.scrollLeft;
+      const containerWidth = container.clientWidth;
+      const imageWidth = 180 + 200;
+      const centerOffset = scrollLeft + containerWidth / 2;
+      let targetIndex = Math.round(centerOffset / imageWidth);
+
+      targetIndex = Math.max(
+        0,
+        Math.min(carouselImageUrls.length - 1, targetIndex),
+      );
+
+      // Snap to the closest image
+      refs.current[targetIndex]?.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+
+      setCurrent(targetIndex);
+      setImageId(targetIndex + 1);
+    }, 150);
+  };
+
+  // Add scroll event listeners
+  useEffect(() => {
+    const container = carouselRef.current;
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
+      container.addEventListener("scrollend", handleScrollEnd);
+
+      return () => {
+        container.removeEventListener("scroll", handleScroll);
+        container.removeEventListener("scrollend", handleScrollEnd);
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
+      };
+    }
+  }, [homeScreenVisible]);
+
+  // Reset when homescreen becomes visible
+  useEffect(() => {
+    if (homeScreenVisible) {
+      setImageId(1);
+      setCurrent(0);
+    }
+  }, [homeScreenVisible]);
+
   return (
     <>
       {!showDownloadPage && (
         <div className="andromeda-wrapper">
           <div className="andromeda-banner">
-            <img src="/theory.png" style={{ height: "75px", width: "75px" }} />
+            <img
+              src="/theory.png"
+              style={{ height: "75px", width: "75px" }}
+              alt="Theory Logo"
+            />
             <h2>Theory</h2>
           </div>
           <div className="carousal-div">
             <div className="overlayy">
               {imageId > 1 && !homeScreenVisible ? (
                 <button className="carousal-button" onClick={() => moveLeft()}>
-                  <i class="fa-solid fa-angle-left"></i>
+                  <i className="fa-solid fa-angle-left"></i>
                 </button>
               ) : (
                 <div style={{ marginRight: "30px" }}></div>
               )}{" "}
               <div className="holder">
-                <div className="carousal-inner">
+                <div className="cameradiv">
+                  <div className="camera-mock">
+                    <div className="lens"></div>
+                  </div>
+                </div>
+                <div className="carousal-inner" ref={carouselRef}>
                   {homeScreenVisible ? (
                     <div
                       className="homescreen-phone"
@@ -103,6 +205,7 @@ function Andromeda({
                         src="/theory-Copy.png"
                         style={{ height: "70px", width: "70px" }}
                         onClick={() => handleHomeClick("icon")}
+                        alt="Home screen"
                       />
                     </div>
                   ) : (
@@ -117,13 +220,13 @@ function Andromeda({
                 </div>{" "}
                 <div className="phone-nav">
                   <div className="nav-icon-holder">
-                    <i class="fa-solid fa-bars"></i>
+                    <i className="fa-solid fa-bars"></i>
                     <i
-                      class="fa-regular fa-circle"
+                      className="fa-regular fa-circle"
                       onClick={() => handleHomeClick("back")}
                     ></i>
                     <i
-                      class="fa-solid fa-angle-left"
+                      className="fa-solid fa-angle-left"
                       onClick={() => handleHomeClick("back")}
                     ></i>
                   </div>
@@ -131,7 +234,7 @@ function Andromeda({
               </div>
               {imageId < 12 && !homeScreenVisible ? (
                 <button className="carousal-button" onClick={() => moveRight()}>
-                  <i class="fa-solid fa-chevron-right"></i>
+                  <i className="fa-solid fa-chevron-right"></i>
                 </button>
               ) : (
                 <div style={{ marginRight: "28px" }}></div>

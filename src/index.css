@@ -1834,6 +1834,46 @@ ul {
   scroll-snap-align: center;
 }
 
+.carousal-images-proxima,
+.carousal-images-proxima-2,
+.carousal-images-proxima-3,
+.carousal-images-proxima-4,
+.carousal-images-proxima-5,
+.carousal-images-proxima-6,
+.carousal-images-proxima-7,
+.carousal-images-proxima-8,
+.carousal-images-proxima-9,
+.carousal-images-proxima-10,
+.carousal-images-proxima-11,
+.carousal-images-proxima-12 {
+  scroll-snap-align: center;
+}
+
+.cameradiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-bottom: 8px;
+}
+
+.camera-mock {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: rgb(108, 107, 107);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lens {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: black;
+}
+
 .homescreen-phone {
   width: 100%;
   height: 400px;
@@ -1856,6 +1896,7 @@ ul {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  pointer-events: none;
   /* 0 20px 60px rgba(255, 215, 0, 0.25),
     0 10px 20px rgba(255, 215, 0, 0.18),
     0 4px 8px rgba(255, 215, 0, 0.1),
