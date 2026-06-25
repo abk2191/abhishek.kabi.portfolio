@@ -191,7 +191,6 @@ function Intro({ toggleSidebar, setShouldRender, setProjectsClicked }) {
         <div className="tech-heading">
           <p>Skills and Experties</p>
         </div>
-        {/* <div className="divdr"></div> */}
         <div className="tech-skills">
           <div className="tech-skills-div">
             <div className="flex-row">
@@ -1033,6 +1032,29 @@ function Intro({ toggleSidebar, setShouldRender, setProjectsClicked }) {
             )} */}
           </div>
         </div>
+      </div>
+
+      {/*------------------------------------------------------------------- */}
+      <div className="divider">
+        <div className="the-dot"></div>
+        <div className="the-line"></div>
+        <div className="the-dot"></div>
+      </div>
+      {/*------------------------------------------------------------------- */}
+      <div className="placeholder-div">
+        <p className="desc">
+          I graduated from{" "}
+          <span className=" mvp-text">
+            Vellore Institute of Technology (VIT Vellore)
+          </span>{" "}
+          with a degree of{" "}
+          <span className=" mvp-text">
+            B.Tech - Information Technology & Engineering (IT)
+          </span>
+        </p>
+        {/*------------------------------------------------------------------- */}
+
+        {/*------------------------------------------------------------------- */}
       </div>
     </div>
   );
