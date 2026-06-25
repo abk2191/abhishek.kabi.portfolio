@@ -25,7 +25,7 @@
   --postdivider: rgb(202, 201, 201);
   --prof-btn-msg: rgb(228, 225, 225);
   --fb-post: rgb(202, 201, 201);
-  --intro-circle: rgb(156, 230, 45);
+  --intro-circle: rgb(162, 172, 20);
   --contact-main-back: whitesmoke;
   --contact-contact-form: white;
   --contact-form-text: black;
@@ -60,10 +60,14 @@
   --carousal-overlayy-back-color: rgb(228, 227, 227);
   --border-color-phone: rgb(164, 164, 164);
   --product-details-section-h3: midnightblue;
+  --music-player-color: rgb(69, 69, 141);
+  --music-border: rgb(69, 69, 141);
 }
 
 /* Dark theme - black background */
 [data-theme="dark"] {
+  --music-border: greenyellow;
+  --music-player-color: greenyellow;
   --product-details-section-h3: greenyellow;
   --border-color-phone: rgb(109, 109, 109);
   --carousal-overlayy-back-color: rgb(45, 45, 45);
@@ -221,7 +225,6 @@ html {
 .sidebar-items-container .fa-file-pdf,
 .sidebar-items-container .fa-github,
 .sidebar-items-container .fa-code,
-.sidebar-items-container .fa-play,
 .sidebar-items-container .fa-pause {
   color: var(--icon-color-new) !important;
 }
@@ -243,9 +246,9 @@ html {
   background-color: var(--divider-dot-line) !important;
 }
 
-.song-name {
+/* .song-name {
   color: var(--text-color) !important;
-}
+} */
 
 /* Fix for Intro component text and background */
 .intro-container p {
@@ -359,7 +362,7 @@ html {
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px;
+  width: 280px;
   height: 100vh;
   background: white;
   color: white;
@@ -483,16 +486,19 @@ h1 {
   border: none;
 }
 
-.play-button i {
+/* .play-button i {
   color: var(--contact-form-text) !important;
-}
+} */
 
 .player-music {
   display: flex;
   align-items: center;
-  justify-content: right;
-  width: 100%;
+  justify-content: center;
+  width: 95%;
   margin-bottom: 5px;
+  border: 1.5px solid var(--music-border);
+  border-radius: 10px;
+  width: fit-content;
 }
 
 span {
@@ -566,8 +572,10 @@ span {
 }
 
 .intro-container p {
-  font-family: "Inter", sans-serif;
+  font-family: "Smooch Sans", sans-serif;
   color: #000033;
+  font-size: 19px;
+  line-height: 1.6;
 }
 
 .hii {
@@ -578,7 +586,8 @@ span {
 .desc {
   margin-bottom: 20px;
   margin-top: 20px;
-  font-size: 25px;
+
+  font-family: "Smooch Sans", sans-serif;
 }
 
 .edu {
@@ -656,12 +665,12 @@ p {
 .song-name {
   white-space: nowrap;
   margin: 0;
-  font-size: 15.5px;
-  /* font-family: "Smooch Sans", sans-serif; */
-  font-family: "Inter", sans-serif;
+
+  font-family: "Smooch Sans", sans-serif;
+  /* font-family: "Inter", sans-serif; */
   line-height: 1.6;
-  color: #000033;
-  margin-right: 38px;
+  margin-left: 10px;
+  margin-right: 34px;
 }
 
 .song-name-place {
@@ -721,7 +730,7 @@ p {
 }
 
 .sidebar-items-container p {
-  font-size: 25px;
+  font-size: 28px;
 }
 
 .app--header {
@@ -1090,6 +1099,14 @@ p {
 .post-text {
   margin-bottom: 25px;
   margin-left: 15px;
+  font-size: 19px !important;
+}
+
+.fa-pause,
+.fa-music,
+.fa-play,
+.song-name {
+  color: var(--music-player-color) !important;
 }
 
 .tech-skills {
@@ -1549,6 +1566,10 @@ ul {
   gap: 20px;
 }
 
+.details-holder-icons {
+  font-size: 19px !important;
+}
+
 .details-holder-dtls {
   display: flex;
   flex-direction: column;
@@ -1557,6 +1578,7 @@ ul {
 
 .details-holder-dtls p {
   font-weight: "bold" !important;
+  font-size: 19px !important;
 }
 
 .plastic-wrapper {
@@ -1582,6 +1604,11 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 50px;
+}
+
+.mail-desc p:last-child {
+  font-size: 19px; /* The actual email/phone/location values */
+  color: gray; /* Already set inline, but you can override */
 }
 
 .social-icons {
@@ -1689,7 +1716,7 @@ ul {
 .heading-blockone {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2px;
   justify-content: center;
 }
 
@@ -1704,6 +1731,7 @@ ul {
 .messgg p {
   line-height: 1.6;
   color: gray;
+  font-size: 19px !important;
 }
 
 .contact-details-div {
@@ -2257,10 +2285,6 @@ ul {
     font-size: 30px;
   }
 
-  .desc {
-    font-size: 20px;
-  }
-
   .hii {
     font-size: 25px;
   }
@@ -2429,6 +2453,9 @@ ul {
 }
 
 @media (min-width: 769px) {
+  .song-name {
+    margin-left: 5px;
+  }
   .block-one {
     height: auto;
   }
@@ -2598,7 +2625,7 @@ ul {
 
 .my-about {
   font-family: "Smooch Sans", sans-serif;
-  font-size: 19px !important;
+  font-size: 18px !important;
   line-height: 1.6;
   text-align: justify;
 }
@@ -2928,11 +2955,12 @@ ul {
   }
 
   .song-name {
-    font-size: 9.6px;
+    font-size: 12px;
+    font-weight: bold;
   }
 
   .player-music {
-    margin-left: 4px;
+    margin-left: 20px;
     font-weight: bold;
   }
 
@@ -2979,11 +3007,13 @@ ul {
   } */
 
   .player-music {
-    margin-left: 4px;
+    margin-left: 11px;
+    width: 100%;
   }
 
   .song-name {
-    font-size: 10.5px;
+    font-size: 15px;
+    font-weight: bold;
   }
 
   .grid-class {

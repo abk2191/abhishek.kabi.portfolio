@@ -239,15 +239,13 @@ function Intro({ toggleSidebar, setShouldRender, setProjectsClicked }) {
                 <br />
                 <span style={{ color: "#1877f2" }}>Objects:</span>
                 <br />
-                Object creation and manipulation
+                Object creation
                 <br />
                 Nested objects
                 <br />
                 Object spread operator
                 <br />
                 Updating immutable state
-                <br />
-                Property access and modification
                 <br />
                 <br />
                 <span style={{ color: "#1877f2" }}>Arrays:</span>
@@ -580,7 +578,7 @@ function Intro({ toggleSidebar, setShouldRender, setProjectsClicked }) {
                 <br />
                 Login flow
                 <br />
-                Authentication state handling
+                Authentication
                 <br />
                 <br />
                 <span style={{ color: "#1877f2" }}>Firestore Database:</span>
@@ -614,7 +612,7 @@ function Intro({ toggleSidebar, setShouldRender, setProjectsClicked }) {
                 Note structures
                 <br />
                 List structures
-                <br /> Firestore document organization
+                <br /> Firestore documents
               </p>
             )}
 
@@ -967,7 +965,7 @@ function Intro({ toggleSidebar, setShouldRender, setProjectsClicked }) {
                 <br />
                 Data-model mismatches
                 <br />
-                Firebase synchronization issues
+                Firebase synchronization
                 <br />
                 Expo configuration issues
                 <br />
@@ -981,8 +979,6 @@ function Intro({ toggleSidebar, setShouldRender, setProjectsClicked }) {
                 Inspect object structures
                 <br />
                 Verify property names
-                <br />
-                Compare expected vs actual state
                 <br /> Test assumptions systematically
               </p>
             )}

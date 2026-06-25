@@ -340,7 +340,7 @@ function Andromeda({
                   </span>
                 </div>
               </div>
-              {menuItemID === "techbreak" && <p>Technical</p>}
+              {menuItemID === "techbreak" && <p>Coming Soon.</p>}
             </div>
           </div>
 
