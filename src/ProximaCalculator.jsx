@@ -18,6 +18,7 @@ function ProximaCalculator({
   const refs = useRef([]);
   const carouselRef = useRef(null);
   const scrollTimeoutRef = useRef(null);
+  const [menuItemID, setMenuItemID] = useState("");
 
   const carouselImageUrls = [
     "/calculator-1.jpg",
@@ -33,6 +34,10 @@ function ProximaCalculator({
     "/calc-hist-1.jpg",
     "/calc-modes.jpg",
   ];
+
+  const handleMenuClcked = (id) => {
+    setMenuItemID((prev) => (prev === id ? "" : id));
+  };
 
   const handleHomeClick = (id) => {
     id === "icon" ? setHomeScreenVisible(false) : setHomeScreenVisible(true);
@@ -228,6 +233,103 @@ function ProximaCalculator({
               ) : (
                 <div style={{ marginRight: "28px" }}></div>
               )}
+            </div>
+          </div>
+
+          <div>
+            <div className="product-details-section">
+              <div className="menu-holder">
+                <h3 onClick={() => handleMenuClcked("proddesc")}>
+                  ○ Product Description
+                </h3>
+                <div onClick={() => handleMenuClcked("proddesc")}>
+                  <span
+                    style={{
+                      fontSize: "30px",
+                      cursor: "pointer",
+                    }}
+                    className="plus-minus"
+                  >
+                    {menuItemID === "proddesc" ? "-" : "+"}
+                  </span>
+                </div>
+              </div>
+              {menuItemID === "proddesc" && (
+                <p className="the-description">
+                  Theory is a comprehensive mobile productivity application
+                  developed by iINTUIT Labs that serves as a central hub for
+                  personal knowledge management, integrating multiple content
+                  types into a single, cohesive platform. The app features a
+                  clean, intuitive interface with full dark/light theme support
+                  and Google Sign-In authentication for data synchronization.
+                  <br />
+                  <br />
+                  <span className="prod-desc-head">Notes</span>
+                  <br /> Notes is the primary content creation tool that allows
+                  users to capture and organize their thoughts in a flexible,
+                  customizable format with a two-column grid layout. Notes can
+                  be pinned, searched, archived, or moved to the bin, with the
+                  editor modal providing a full-screen writing experience with
+                  adjustable font sizes and automatic saving.
+                  <br />
+                  <br />
+                  <span className="prod-desc-head">Drawing</span>
+                  <br /> Drawing is a creative canvas tool built on the
+                  high-performance Skia graphics library that allows users to
+                  sketch and create visual content with smooth rendering and
+                  responsive touch interactions. Users can choose from twelve
+                  distinct colors and adjust stroke widths, with each drawing
+                  saved with a timestamp and stroke count for easy reference.
+                  <br />
+                  <br />
+                  <span className="prod-desc-head">Lists</span>
+                  <br /> Lists is a comprehensive task management system that
+                  enables users to create and track checklists with a title and
+                  dynamic collection of tasks that can be added, completed, or
+                  removed in real-time. Tasks are displayed with interactive
+                  checkboxes and progress summaries, with lists being
+                  color-coded, pinned, and automatically saved when the editor
+                  is closed.
+                  <br />
+                  <br />
+                  <span className="prod-desc-head">Calendar</span>
+                  <br /> Calendar is a full-featured event management and
+                  scheduling system that displays a monthly grid view where each
+                  day is represented as a cell with visual indicators showing
+                  which dates have events scheduled. Users can navigate between
+                  months, toggle to a year view, set multi-day events, log daily
+                  moods, and schedule reminders using the integrated
+                  notification system.
+                  <br />
+                  <br />
+                  <span className="prod-desc-head">Mindmap</span>
+                  <br /> Mindmap is a visual thinking and brainstorming tool
+                  that allows users to create hierarchical diagrams for
+                  organizing ideas using a tree-based architecture with
+                  unlimited nesting depth. Each node features editable text and
+                  customizable colors from a palette of sixteen options, with
+                  zoom controls and full CRUD operations including creation,
+                  editing, deletion, and archiving.
+                </p>
+              )}
+
+              <div className="menu-holder">
+                <h3 onClick={() => handleMenuClcked("techbreak")}>
+                  ○ Technical Breakdown
+                </h3>
+                <div onClick={() => handleMenuClcked("techbreak")}>
+                  <span
+                    style={{
+                      fontSize: "30px",
+                      cursor: "pointer",
+                    }}
+                    className="plus-minus"
+                  >
+                    {menuItemID === "techbreak" ? "-" : "+"}
+                  </span>
+                </div>
+              </div>
+              {menuItemID === "techbreak" && <p>Technical</p>}
             </div>
           </div>
 

@@ -59,10 +59,12 @@
   --carousal-button-color-button: white;
   --carousal-overlayy-back-color: rgb(228, 227, 227);
   --border-color-phone: rgb(164, 164, 164);
+  --product-details-section-h3: midnightblue;
 }
 
 /* Dark theme - black background */
 [data-theme="dark"] {
+  --product-details-section-h3: greenyellow;
   --border-color-phone: rgb(109, 109, 109);
   --carousal-overlayy-back-color: rgb(45, 45, 45);
   --carousal-button-color-button: black;
@@ -452,7 +454,7 @@ html {
   margin: 0;
   padding: 0;
   /* background-color: whitesmoke; */
-  font-family: "Inter", sans-serif;
+  font-family: "Smooch Sans", sans-serif;
 }
 
 .logo {
@@ -473,7 +475,7 @@ h1 {
   color: #000033;
   margin-left: 20px;
   font-family: "Smooch Sans", sans-serif;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .play-button {
@@ -1768,15 +1770,30 @@ ul {
 .product-details-section h3 {
   margin-left: 30px;
   padding: 0;
-  color: rgb(74, 74, 74);
+  color: var(--product-details-section-h3);
+  cursor: pointer;
+}
+
+.plus-minus {
+  color: var(--product-details-section-h3);
+}
+
+.prod-desc-head {
+  font-weight: bold;
+  color: #1877f2;
 }
 
 .product-details-section p {
   margin-left: 30px;
+  font-family: "Smooch Sans", sans-serif;
 }
 
 .the-description {
   text-align: justify;
+}
+
+.the-description p {
+  font-family: "Smooch Sans", sans-serif;
 }
 
 .menu-holder {
@@ -2580,7 +2597,7 @@ ul {
 }
 
 .my-about {
-  font-family: "Inter", sans-serif !important;
+  font-family: "Smooch Sans", sans-serif;
   font-size: 19px !important;
   line-height: 1.6;
   text-align: justify;
@@ -2886,7 +2903,7 @@ ul {
 
 @media (max-width: 768px) {
   .my-about {
-    font-size: 14px !important;
+    font-size: 18px !important;
   }
   .about {
     padding: 20px;
@@ -2907,7 +2924,7 @@ ul {
   }
 
   .logo p {
-    font-size: 24px;
+    font-size: 34px;
   }
 
   .song-name {
@@ -2915,7 +2932,7 @@ ul {
   }
 
   .player-music {
-    margin-left: 8px;
+    margin-left: 4px;
     font-weight: bold;
   }
 
@@ -2962,7 +2979,7 @@ ul {
   } */
 
   .player-music {
-    margin-left: 8px;
+    margin-left: 4px;
   }
 
   .song-name {
