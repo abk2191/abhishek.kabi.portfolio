@@ -1755,10 +1755,6 @@ ul {
   /* color: var(--counter-text-new) !important; */
 }
 
-/* .originalcolor {
-  color: #1e40af;
-} */
-
 .show-counters-div p {
   color: var(--counter-color) !important;
 }
