@@ -153,7 +153,7 @@ function App() {
   //****************************************************************************************/
 
   return (
-    <Router basename="/">
+    <Router>
       <div>
         <Navbar
           isSidebarOpen={isSidebarOpen}
