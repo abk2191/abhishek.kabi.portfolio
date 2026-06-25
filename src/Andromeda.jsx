@@ -33,6 +33,11 @@ function Andromeda({
   const refs = useRef([]);
   const carouselRef = useRef(null);
   const scrollTimeoutRef = useRef(null);
+  const [menuItemID, setMenuItemID] = useState("");
+
+  const handleMenuClcked = (id) => {
+    setMenuItemID((prev) => (prev === id ? "" : id));
+  };
 
   const handleHomeClick = (id) => {
     id === "icon" ? setHomeScreenVisible(false) : setHomeScreenVisible(true);
@@ -239,6 +244,75 @@ function Andromeda({
               ) : (
                 <div style={{ marginRight: "28px" }}></div>
               )}
+            </div>
+          </div>
+
+          <div>
+            <div className="product-details-section">
+              <div className="menu-holder">
+                <h3 onClick={() => handleMenuClcked("proddesc")}>
+                  Product Description
+                </h3>
+                <div onClick={() => handleMenuClcked("proddesc")}>
+                  <span
+                    style={{
+                      fontSize: "30px",
+                      cursor: "pointer",
+                      color: "gray",
+                    }}
+                  >
+                    {menuItemID === "proddesc" ? "-" : "+"}
+                  </span>
+                </div>
+              </div>
+              {menuItemID === "proddesc" && (
+                <p className="the-description">
+                  Theory serves as a central hub for personal knowledge
+                  management, integrating multiple content types. Users can
+                  create and manage Notes with customizable colors, pinning, and
+                  font size adjustments. The Lists feature allows for the
+                  creation of checklists with task completion tracking. <br />{" "}
+                  <br />A Mindmap module enables users to visually brainstorm
+                  and organize ideas in a hierarchical structure. The Drawing
+                  tool provides a canvas for freehand sketches with color and
+                  stroke width options. A full-featured Calendar allows for
+                  scheduling events, adding reminders, and setting daily moods.
+                  All content types can be Archived or moved to a Bin for
+                  recovery or permanent deletion. <br /> <br /> A Sidebar
+                  navigation menu provides quick access to all these core
+                  features of the application. The app includes both Light and
+                  Dark Theme support, which is applied across all interfaces.
+                  User data synchronization and authentication are managed via
+                  Google Sign-In. Persistent storage is handled using
+                  AsyncStorage for local data persistence. The Calendar
+                  integrates with the device's notification system to send
+                  reminders for scheduled events. <br />
+                  <br />
+                  Each content type has a dedicated editor modal for creating
+                  and modifying content. Search functionality is available for
+                  both Notes and Lists to quickly find content. The application
+                  is built with a focus on customization, allowing users to
+                  change colors for notes, lists, and calendar events.
+                </p>
+              )}
+
+              <div className="menu-holder">
+                <h3 onClick={() => handleMenuClcked("techbreak")}>
+                  Technical Breakdown
+                </h3>
+                <div onClick={() => handleMenuClcked("techbreak")}>
+                  <span
+                    style={{
+                      fontSize: "30px",
+                      cursor: "pointer",
+                      color: "gray",
+                    }}
+                  >
+                    {menuItemID === "techbreak" ? "-" : "+"}
+                  </span>
+                </div>
+              </div>
+              {menuItemID === "techbreak" && <p>Technical</p>}
             </div>
           </div>
 
