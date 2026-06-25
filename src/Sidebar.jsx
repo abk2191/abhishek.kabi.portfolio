@@ -76,7 +76,7 @@ const Sidebar = ({
             style={{ cursor: "pointer" }}
           >
             <i className="fa-solid fa-circle-user"></i>
-            <p>Profile</p>
+            <p>Profile ✨</p>
           </div>
 
           <div className="flex-box-one">

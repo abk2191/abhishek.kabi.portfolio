@@ -139,7 +139,7 @@ function Profile() {
                 </div>
               </div>
               <div className="details-holder-dtls">
-                <p>Full Stack Product Engineer (Web and Native)</p>
+                <p>Full Stack Engineer</p>
               </div>
             </div>
             {/* <div className="tech-skills">
@@ -1015,7 +1015,9 @@ function Profile() {
                     <div>
                       <div>
                         <p>
-                          Abhishek kabi{" "}
+                          <span style={{ fontWeight: "bold" }}>
+                            Abhishek kabi
+                          </span>{" "}
                           <span style={{ color: "gray", fontSize: "12px" }}>
                             Updated his profile picture
                           </span>
@@ -1028,7 +1030,7 @@ function Profile() {
                         style={{
                           color: "gray",
                           fontSize: "12px",
-                          marginLeft: "-124px",
+                          marginLeft: "-79px",
                         }}
                       >
                         8 Jun 2026

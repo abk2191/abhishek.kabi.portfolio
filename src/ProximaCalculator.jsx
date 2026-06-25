@@ -256,60 +256,39 @@ function ProximaCalculator({
               </div>
               {menuItemID === "proddesc" && (
                 <p className="the-description">
-                  Theory is a comprehensive mobile productivity application
-                  developed by iINTUIT Labs that serves as a central hub for
-                  personal knowledge management, integrating multiple content
-                  types into a single, cohesive platform. The app features a
-                  clean, intuitive interface with full dark/light theme support
-                  and Google Sign-In authentication for data synchronization.
+                  Proxima Calculator is a comprehensive and versatile calculator
+                  application developed by iINTUIT Labs that combines
+                  arithmetic, age, and percentage calculations into a single,
+                  unified platform. The app features a clean, intuitive
+                  interface with full dark/light theme support and persistent
+                  storage of calculation history using AsyncStorage.
                   <br />
                   <br />
-                  <span className="prod-desc-head">Notes</span>
-                  <br /> Notes is the primary content creation tool that allows
-                  users to capture and organize their thoughts in a flexible,
-                  customizable format with a two-column grid layout. Notes can
-                  be pinned, searched, archived, or moved to the bin, with the
-                  editor modal providing a full-screen writing experience with
-                  adjustable font sizes and automatic saving.
+                  <span className="prod-desc-head">Arithmetic Calculator</span>
+                  <br /> The arithmetic calculator provides a full-featured
+                  standard calculator with support for basic operations
+                  including addition, subtraction, multiplication, division, and
+                  percentages. Users can input complex expressions with
+                  parentheses support, view real-time results, and toggle
+                  between calculator view and calculation history.
                   <br />
                   <br />
-                  <span className="prod-desc-head">Drawing</span>
-                  <br /> Drawing is a creative canvas tool built on the
-                  high-performance Skia graphics library that allows users to
-                  sketch and create visual content with smooth rendering and
-                  responsive touch interactions. Users can choose from twelve
-                  distinct colors and adjust stroke widths, with each drawing
-                  saved with a timestamp and stroke count for easy reference.
+                  <span className="prod-desc-head">Age Calculator</span>
+                  <br /> The age calculator allows users to calculate their
+                  exact age by entering their date of birth and selecting a
+                  target date with month, day, and year pickers. The result
+                  displays the age in years, months, days, and also provides
+                  detailed breakdowns in hours, minutes, and seconds for precise
+                  tracking.
                   <br />
                   <br />
-                  <span className="prod-desc-head">Lists</span>
-                  <br /> Lists is a comprehensive task management system that
-                  enables users to create and track checklists with a title and
-                  dynamic collection of tasks that can be added, completed, or
-                  removed in real-time. Tasks are displayed with interactive
-                  checkboxes and progress summaries, with lists being
-                  color-coded, pinned, and automatically saved when the editor
-                  is closed.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Calendar</span>
-                  <br /> Calendar is a full-featured event management and
-                  scheduling system that displays a monthly grid view where each
-                  day is represented as a cell with visual indicators showing
-                  which dates have events scheduled. Users can navigate between
-                  months, toggle to a year view, set multi-day events, log daily
-                  moods, and schedule reminders using the integrated
-                  notification system.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Mindmap</span>
-                  <br /> Mindmap is a visual thinking and brainstorming tool
-                  that allows users to create hierarchical diagrams for
-                  organizing ideas using a tree-based architecture with
-                  unlimited nesting depth. Each node features editable text and
-                  customizable colors from a palette of sixteen options, with
-                  zoom controls and full CRUD operations including creation,
-                  editing, deletion, and archiving.
+                  <span className="prod-desc-head">Percentage Calculator</span>
+                  <br /> The percentage calculator features three specialized
+                  tabs including standard percentage calculations, common
+                  percentage phrases, and percentage difference calculations.
+                  Each tab provides intuitive input fields, instant calculations
+                  with step-by-step breakdowns, and clear functionality for easy
+                  resetting of values.
                 </p>
               )}
 
@@ -329,7 +308,7 @@ function ProximaCalculator({
                   </span>
                 </div>
               </div>
-              {menuItemID === "techbreak" && <p>Technical</p>}
+              {menuItemID === "techbreak" && <p>Coming soon.</p>}
             </div>
           </div>
 

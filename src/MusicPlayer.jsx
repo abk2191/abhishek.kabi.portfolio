@@ -27,8 +27,16 @@ function MusicPlayer() {
 
   return (
     <div className="player-music">
-      <i class="fa-solid fa-music" style={{ fontSize: "12px" }}></i>
-      <button className="play-button" onClick={togglePlayPause}>
+      <button
+        className="play-button"
+        onClick={togglePlayPause}
+        style={{
+          width: "24px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         {isPlaying ? (
           <i class="fa-solid fa-pause"></i>
         ) : (
