@@ -1540,6 +1540,22 @@ ul {
   color: var(--counter-full-color);
 }
 
+.code-div {
+  margin-left: 40px;
+}
+
+.code-div-heading {
+  margin-left: 2px !important;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.code-div-desc {
+  margin-left: 2px !important;
+  margin-bottom: 20px;
+}
+
 .counter-warning {
   color: var(--counter-warning-color);
 }
@@ -2242,6 +2258,9 @@ ul {
 /************************************************************/
 
 @media (max-width: 768px) {
+  .code-div {
+    margin-left: 40px;
+  }
   .product-details-section {
     width: 90%;
   }
