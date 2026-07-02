@@ -1610,13 +1610,21 @@ ul {
   justify-content: center;
 }
 
-body {
+/* body {
   height: 100vh;
-
   background: url("/jungle.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+} */
+
+.tic-tac-toe-wrapper {
+  min-height: 100vh;
+  background: url("/jungle.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid transparent;
 }
 
 .wrapper {
@@ -2036,6 +2044,19 @@ body {
 }
 
 /************************************************************/
+
+.game-tech-desc {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.game-tech-desc p {
+  font-size: 20px;
+}
 
 .container-contact {
   width: 100%;
@@ -2691,6 +2712,9 @@ body {
 /************************************************************/
 
 @media (max-width: 768px) {
+  .game-code {
+    width: 100%;
+  }
   .code-div {
     margin-left: 40px;
   }
