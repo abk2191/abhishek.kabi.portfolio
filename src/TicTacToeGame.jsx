@@ -484,6 +484,7 @@ function TicTacToeGame({ setStartGame }) {
                     fontSize: "20px",
                     fontWeight: "bold",
                     marginTop: "30px",
+                    cursor: "pointer",
                   }}
                 >
                   <i class="fa-solid fa-xmark"></i> Close Game
