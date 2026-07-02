@@ -16,6 +16,7 @@ import Andromeda from "./Andromeda";
 import ProximaCalculator from "./ProximaCalculator";
 import ScratchPad from "./ScratchPad";
 import SourceCode from "./SourceCode";
+import TicTacToe from "./tic-tac-toe-ai";
 
 function App() {
   //****************************************************************************************/
@@ -33,7 +34,6 @@ function App() {
   const [showDownloadPage, setShowDownloadPage] = useState(false);
   const [currentButtonID, setCurrentButtonId] = useState("");
   const [tryButtonClicked, setTryButtonClicked] = useState("");
-
   const isDevelopment = import.meta.env.DEV;
   const basename = isDevelopment ? "/" : "/abhishek.kabi.26/";
 
@@ -197,6 +197,7 @@ function App() {
             }
           />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/tic-tac-toe-ai" element={<TicTacToe />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/game" element={<Game />} />
           <Route
