@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import Theboard from "./Theboard";
 import Confetti from "react-confetti";
 
-function TicTacToeGame() {
+function TicTacToeGame({ setStartGame }) {
   const [xPlayed, setXPlayed] = useState(true);
   const [value, setValue] = useState(Array(9).fill(null));
   const [player, setPlayer] = useState("Player");
@@ -422,89 +422,104 @@ function TicTacToeGame() {
 
   return (
     <>
-      <audio ref={losingAudioRef} src="./fail.mp3" preload="auto" />
-      <audio ref={audioRef} src="./winner-sound.mp3" preload="auto" />
+      <div className="tic-tac-toe-wrapper">
+        <audio ref={losingAudioRef} src="./fail.mp3" preload="auto" />
+        <audio ref={audioRef} src="./winner-sound.mp3" preload="auto" />
 
-      {showConfetti && (
-        <Confetti
-          width={window.innerWidth}
-          height={window.innerHeight}
-          numberOfPieces={150}
-          gravity={0.15}
-          wind={0}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-          }}
-        />
-      )}
-
-      {showEmoji && (
-        <div className="emoji-celebration">
-          <span className="emoji">{randomEmoji}</span>
-          <div className="celebration-text">{celebrationText}</div>
-        </div>
-      )}
-
-      <div className="wrapper">
-        <div className="banner">
-          <h2
+        {showConfetti && (
+          <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            numberOfPieces={150}
+            gravity={0.15}
+            wind={0}
             style={{
-              fontFamily: "Amarante, serif",
+              position: "fixed",
+              top: 0,
+              left: 0,
             }}
-            className="gradient-text"
-          >
-            Classic Tic-Tac-Toe
-          </h2>
-        </div>
+          />
+        )}
 
-        {!gameMode ? (
-          <div className="mode-selection-container">
-            <div className="mode-buttons">
-              <button
-                onClick={() => startGameWithMode("twoPlayer")}
-                className="mode-button two-player-button"
-              >
-                Two Player Game
-              </button>
-              <button
-                onClick={() => startGameWithMode("ai")}
-                className="mode-button ai-button"
-              >
-                Play with AI
-              </button>
-            </div>
-          </div>
-        ) : (
-          <div className="container">
-            <div className="game-header">
-              <button onClick={backToMenu} className="back-button">
-                Back to Menu
-              </button>
-            </div>
-
-            <p style={{ fontFamily: "Inter, sans-serif", color: "white" }}>
-              {getDisplayText()}
-            </p>
-            <Theboard
-              updateBoard={updateBoard}
-              value={value}
-              winningIndexes={winningIndexes}
-              disabled={aiThinking || (gameMode === "ai" && player === "AI")}
-            />
-            <button
-              onClick={undoMove}
-              disabled={history.length === 0 || aiThinking}
-              className="undo-button"
-            >
-              Undo Move ({history.length} moves)
-            </button>
-            <button onClick={restartGame} className="restart-button">
-              Restart Game
-            </button>
+        {showEmoji && (
+          <div className="emoji-celebration">
+            <span className="emoji">{randomEmoji}</span>
+            <div className="celebration-text">{celebrationText}</div>
           </div>
         )}
+
+        <div className="wrapper">
+          <div className="banner">
+            <h2
+              style={{
+                fontFamily: "Amarante, serif",
+              }}
+              className="gradient-text"
+            >
+              Classic Tic-Tac-Toe
+            </h2>
+          </div>
+
+          {!gameMode ? (
+            <div className="mode-selection-container">
+              <div className="mode-buttons">
+                <button
+                  onClick={() => startGameWithMode("twoPlayer")}
+                  className="mode-button two-player-button"
+                >
+                  Two Player Game
+                </button>
+                <button
+                  onClick={() => startGameWithMode("ai")}
+                  className="mode-button ai-button"
+                >
+                  Play with AI
+                </button>
+                <button
+                  onClick={() => setStartGame(false)}
+                  style={{
+                    color: "greenyellow",
+                    border: "none",
+                    background: "none",
+                    fontSize: "20px",
+                    fontWeight: "bold",
+                    marginTop: "30px",
+                  }}
+                >
+                  <i class="fa-solid fa-xmark"></i> Close Game
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="container">
+              <div className="game-header">
+                <button onClick={backToMenu} className="back-button">
+                  Back to Menu
+                </button>
+              </div>
+
+              <p style={{ fontFamily: "Inter, sans-serif", color: "white" }}>
+                {getDisplayText()}
+              </p>
+              <Theboard
+                updateBoard={updateBoard}
+                value={value}
+                winningIndexes={winningIndexes}
+                disabled={aiThinking || (gameMode === "ai" && player === "AI")}
+              />
+              <button
+                onClick={undoMove}
+                disabled={history.length === 0 || aiThinking}
+                className="undo-button"
+              >
+                Undo Move ({history.length} moves)
+              </button>
+              <button onClick={restartGame} className="restart-button">
+                Restart Game
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
