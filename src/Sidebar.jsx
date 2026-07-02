@@ -189,7 +189,7 @@ const Sidebar = ({
                       ? "animate__slideInDown"
                       : "animate__slideOutUp"
                   }`}
-                  // onClick={() => handleNavigation("/space")}
+                  onClick={() => handleNavigation("/tic-tac-toe-ai")}
                   style={{ cursor: "pointer", marginLeft: "12px" }}
                 >
                   <div className="image-cont">
