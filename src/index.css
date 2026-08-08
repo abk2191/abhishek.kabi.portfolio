@@ -850,7 +850,7 @@ p {
 }
 
 .profile-action-button {
-  width: 175px;
+  width: 160px;
   height: 35px;
   border-radius: 7px;
   border: none;
@@ -2727,7 +2727,7 @@ ul {
   }
 
   .heading-blockone {
-    margin-top: -200px;
+    margin-top: -180px;
   }
   .counter-text {
     font-size: 35px;
