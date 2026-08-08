@@ -11,7 +11,7 @@ export default defineConfig({
       includeAssets: ["favicon.ico", "apple-touch-icon.png"],
       manifest: {
         name: "Abhishek Kabi - Portfolio",
-        short_name: "Portfolio",
+        short_name: "Abhishek",
         description: "Abhishek Kabi - Front End Developer Portfolio",
         theme_color: "#ffffff",
         background_color: "#ffffff",
