@@ -207,25 +207,7 @@ const Sidebar = ({
                       ? "animate__slideInDown"
                       : "animate__slideOutUp"
                   }`}
-                  // onClick={() => handleNavigation("/space")}
-                  style={{ cursor: "pointer", marginLeft: "12px" }}
-                >
-                  <div className="image-cont">
-                    <img
-                      src="/wordle.png"
-                      style={{ height: "28px", width: "28px" }}
-                    />
-                  </div>
-                  <p>Wordle (PWA)</p>
-                </div>
-
-                <div
-                  className={`menu-item-div animate__animated ${
-                    projectsClicked
-                      ? "animate__slideInDown"
-                      : "animate__slideOutUp"
-                  }`}
-                  // onClick={() => handleNavigation("/space")}
+                  onClick={() => handleNavigation("/color-word-match")}
                   style={{ cursor: "pointer", marginLeft: "12px" }}
                 >
                   <div className="image-cont">
@@ -235,6 +217,21 @@ const Sidebar = ({
                     />
                   </div>
                   <p>Color-Word Match (PWA)</p>
+                </div>
+
+                <div
+                  className={`app--header animate__animated ${
+                    projectsClicked
+                      ? "animate__slideInDown"
+                      : "animate__slideOutUp"
+                  }`}
+                  style={{ cursor: "pointer", marginTop: "15px" }}
+                >
+                  <div>
+                    <i class="fa-solid fa-gear"></i>
+                  </div>
+                  <p>More Projects</p>
+                  <i class="fa-solid fa-angles-right"></i>
                 </div>
 
                 {/* {shouldRenderGM && (

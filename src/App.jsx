@@ -17,6 +17,7 @@ import ProximaCalculator from "./ProximaCalculator";
 import ScratchPad from "./ScratchPad";
 import SourceCode from "./SourceCode";
 import TicTacToe from "./tic-tac-toe-ai";
+import ColorWordMatch from "./ColorWordMatch";
 
 function App() {
   //****************************************************************************************/
@@ -228,6 +229,7 @@ function App() {
           />
           <Route path="/scratchpad" element={<ScratchPad />} />
           <Route path="/sourcecode" element={<SourceCode />} />
+          <Route path="/color-word-match" element={<ColorWordMatch />} />
         </Routes>
       </div>
     </Router>
