@@ -62,10 +62,12 @@
   --product-details-section-h3: midnightblue;
   --music-player-color: rgb(69, 69, 141);
   --music-border: rgb(69, 69, 141);
+  --play-pause: midnightblue;
 }
 
 /* Dark theme - black background */
 [data-theme="dark"] {
+  --play-pause: greenyellow;
   --music-border: greenyellow;
   --music-player-color: greenyellow;
   --product-details-section-h3: greenyellow;
@@ -761,7 +763,7 @@ p {
   justify-content: left;
   margin-top: 10px;
   padding-left: 15px;
-  gap: 12px;
+  gap: 4px;
   cursor: pointer;
 }
 
@@ -961,6 +963,30 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%; /* Optional: makes it circular */
+  /* margin-top: -15px;
+  margin-left: 10px; */
+}
+
+.post-upload {
+  height: 250px;
+  width: 250px;
+  background-image: url("/abhi.jpg"); /* Adjust the path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* margin-top: -15px;
+  margin-left: 10px; */
+}
+
+.post-upload-two {
+  height: 250px;
+  width: 250px;
+  background-image: url("/abhi2.jpg"); /* Adjust the path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   /* margin-top: -15px;
   margin-left: 10px; */
 }
@@ -1371,6 +1397,15 @@ ul {
 
 .fa-solid {
   color: var(--gamepad) !important;
+}
+
+.profile-action-button .fa-user-plus {
+  color: white !important;
+}
+
+.play-button .fa-pause,
+.play-button .fa-play {
+  color: var(--play-pause) !important;
 }
 
 .game-over {

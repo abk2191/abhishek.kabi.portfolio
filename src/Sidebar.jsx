@@ -230,8 +230,8 @@ const Sidebar = ({
                   <div>
                     <i class="fa-solid fa-gear"></i>
                   </div>
-                  <p>More Projects</p>
-                  <i class="fa-solid fa-angles-right"></i>
+                  <p style={{ fontWeight: "bold" }}>MORE PROJECTS</p>
+                  <i class="fa-solid fa-arrow-right-long"></i>
                 </div>
 
                 {/* {shouldRenderGM && (
