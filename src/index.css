@@ -63,10 +63,12 @@
   --music-player-color: rgb(69, 69, 141);
   --music-border: rgb(69, 69, 141);
   --play-pause: midnightblue;
+  --carousal-nav-btn: white;
 }
 
 /* Dark theme - black background */
 [data-theme="dark"] {
+  --carousal-nav-btn: black;
   --play-pause: greenyellow;
   --music-border: greenyellow;
   --music-player-color: greenyellow;
@@ -1021,6 +1023,14 @@ p {
   align-items: center;
   justify-content: center;
   gap: 30px;
+}
+
+.carousal-button .fa-angle-left {
+  color: var(--carousal-nav-btn) !important;
+}
+
+.carousal-button .fa-chevron-right {
+  color: var(--carousal-nav-btn) !important;
 }
 
 .tech-heading {
@@ -2170,9 +2180,10 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-left: 30px;
+  border: 1px soild red;
+  /* padding-left: 30px;
   padding-right: 30px;
-  padding-top: 30px;
+  padding-top: 30px; */
 }
 
 .font-handler {
@@ -2234,6 +2245,7 @@ ul {
   flex-direction: column;
   gap: 2px;
   justify-content: center;
+  align-items: center;
 }
 
 .heading-contact-text p {
@@ -2283,7 +2295,7 @@ ul {
 .mail-icon-wrapper {
   height: 40px;
   width: 40px;
-
+  margin-left: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2758,6 +2770,12 @@ ul {
 /************************************************************/
 
 @media (max-width: 768px) {
+  .mail-desc {
+    margin-left: 5px;
+  }
+  .contact-details-div {
+    width: 100%;
+  }
   .game-code {
     width: 100%;
   }
@@ -2773,7 +2791,7 @@ ul {
   }
 
   .heading-blockone {
-    margin-top: -180px;
+    margin-top: 10px;
   }
   .counter-text {
     font-size: 35px;
@@ -2830,13 +2848,10 @@ ul {
     width: 270px;
   }
 
-  .block-one {
-    margin-top: 650px;
-  }
-
   .block-two {
     margin-bottom: 50px;
     height: auto;
+    padding: 20px;
   }
 
   .Send-message-btn {
@@ -2846,11 +2861,11 @@ ul {
 
   .block-one,
   .block-two {
-    width: 350px;
+    width: 300px;
   }
 
   .header-input-textarea {
-    height: 100px;
+    width: 100px;
   }
 
   .game-area {
@@ -2975,6 +2990,9 @@ ul {
 }
 
 @media (min-width: 769px) {
+  .block-one {
+    margin-top: 50px;
+  }
   .song-name {
     margin-left: 5px;
   }
