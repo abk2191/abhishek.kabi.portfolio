@@ -413,7 +413,7 @@ function Profile() {
                   </div>
                 </div>
                 <div className="post-text">
-                  <p>🤳</p>
+                  <p>At KFC Cooch Behar🤳</p>
                 </div>
                 <div className="post-wrapper">
                   <div className="post-upload-two"></div>
