@@ -12,20 +12,17 @@ function DownloadPage({
 
   const handleDownload = (id) => {
     if (id === "theory") {
-      // For APK file - force download
-      const link = document.createElement("a");
-      link.href = "/theory-app.apk"; // Path to your APK in public folder
-      link.download = "theory-app.apk";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      window.open(
+        "https://drive.google.com/file/d/1TSB2DUwYhPYOq1RoJB-PycPV5oVUzw2m/view?usp=sharing",
+        "_blank",
+        "noopener,noreferrer",
+      );
     } else if (id === "PC") {
-      const link = document.createElement("a");
-      link.href = "/pc-app.apk"; // Path to your APK in public folder
-      link.download = "pc-app.apk";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      window.open(
+        "https://drive.google.com/file/d/1kUNwT23OzU7QauVASM1eD7_gzKuXV1hV/view?usp=sharing",
+        "_blank",
+        "noopener,noreferrer",
+      );
     }
   };
   return (
