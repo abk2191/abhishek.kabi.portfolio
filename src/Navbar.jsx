@@ -40,7 +40,8 @@ const Navbar = ({
         </button>
         <ThemeToggle />
         <div className="logo">
-          <div style={{ cursor: "pointer" }}>
+          <div style={{ cursor: "pointer" }} className="name-and-logo-cont">
+            <div className="display-pic"></div>
             <p>ABHISHEK KABI</p>
           </div>
           <div>

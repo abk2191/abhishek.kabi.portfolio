@@ -167,9 +167,9 @@ function Intro({ toggleSidebar, setShouldRender, setProjectsClicked }) {
         </p>
         <p style={{ textAlign: "center" }}>👇</p>
         <img
-          src="/mvp.png"
+          src="mvpimg2.png"
           alt="mvp"
-          className="mvpimg"
+          className="mvpimg2"
           onClick={() => {
             toggleSidebar();
 

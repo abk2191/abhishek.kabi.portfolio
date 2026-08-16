@@ -13,7 +13,7 @@ function Banner() {
 
   return (
     <div className="banner-container">
-      <img src="/Untitled.png" className="banner-image" alt="Banner" />
+      {/* <img src="/abhii.jpg" className="banner-image" alt="Banner" /> */}
     </div>
   );
 }

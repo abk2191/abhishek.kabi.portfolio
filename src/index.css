@@ -64,10 +64,14 @@
   --music-border: rgb(69, 69, 141);
   --play-pause: midnightblue;
   --carousal-nav-btn: white;
+  --mvp-img-border: gold;
+  --display-pic-border: #000033;
 }
 
 /* Dark theme - black background */
 [data-theme="dark"] {
+  --display-pic-border: greenyellow;
+  --mvp-img-border: greenyellow;
   --carousal-nav-btn: black;
   --play-pause: greenyellow;
   --music-border: greenyellow;
@@ -170,6 +174,30 @@ html {
 
 .logo p {
   color: var(--text-color) !important;
+  font-weight: bold;
+}
+
+.display-pic {
+  background-image: url("abhii.jpg");
+  background-size: cover;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1.5px solid var(--display-pic-border);
+}
+
+.name-and-logo-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  margin-left: 20px;
+}
+.name-and-logo-cont p {
+  margin: 0;
+  padding: 0;
 }
 
 .hamburger span {
@@ -384,6 +412,7 @@ html {
     0 3px 6px rgba(0, 0, 0, 0.05),
     0 3px 8px rgba(0, 0, 0, 0.07);
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* Open animation */
@@ -480,9 +509,9 @@ h1 {
   margin: 0;
   padding: 0;
   color: #000033;
-  margin-left: 20px;
+
   font-family: "Smooch Sans", sans-serif;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .play-button {
@@ -513,6 +542,7 @@ span {
 .place-holder {
   height: 280px;
   margin-bottom: 70px;
+  width: fit-content;
 }
 
 .gplay {
@@ -546,6 +576,13 @@ span {
   height: auto;
   object-fit: contain;
   display: block;
+}
+
+.banner-container {
+  background-image: url("abhii.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .banner-image.active {
@@ -826,9 +863,18 @@ p {
 
 .mvpimg {
   height: auto;
-  width: 100%;
   margin-top: 20px;
   cursor: pointer;
+}
+
+.mvpimg2 {
+  height: auto;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--mvp-img-border);
 }
 
 .mvp-text {
@@ -844,7 +890,9 @@ p {
 }
 
 .sidebar-items-container p {
-  font-size: 28px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Inter", sans-serif !important;
 }
 
 .app--header {
@@ -2983,9 +3031,9 @@ ul {
     max-width: 350px;
   }
 
-  .mvpimg {
+  .mvpimg2 {
     height: auto;
-    width: 100%;
+    width: 330px;
     margin-top: 20px;
   }
 
@@ -3100,6 +3148,15 @@ ul {
 }
 
 @media (min-width: 769px) {
+  .banner-container {
+    background-image: url("abhiii.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .mvpimg2 {
+    height: 400px;
+  }
   .project-holders {
     width: 600px;
   }
@@ -3245,8 +3302,8 @@ ul {
 }
 
 .project-section p {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .menu-item-div {
@@ -3604,7 +3661,7 @@ ul {
   }
 
   .logo p {
-    font-size: 34px;
+    font-size: 28px;
   }
 
   .song-name {
