@@ -128,6 +128,14 @@ function Profile() {
     }
   };
 
+  const handleFBButtonClick = () => {
+    window.open(
+      "https://www.facebook.com/share/1GiTJsYhda/",
+      "_blank",
+      "noopener,noreferrer",
+    );
+  };
+
   return (
     <>
       <div className="cover-photo"></div>
@@ -140,10 +148,18 @@ function Profile() {
         </div>
 
         <div className="profile-button">
-          <button className="profile-action-button blue">
+          <button
+            className="profile-action-button blue"
+            onClick={() => handleFBButtonClick()}
+            style={{ cursor: "pointer" }}
+          >
             <i className="fa-solid fa-user-plus white"></i> Add friend
           </button>
-          <button className="profile-action-button themed">
+          <button
+            className="profile-action-button themed"
+            onClick={() => handleFBButtonClick()}
+            style={{ cursor: "pointer" }}
+          >
             <i className="fa-brands fa-facebook-messenger"></i> Message
           </button>
         </div>

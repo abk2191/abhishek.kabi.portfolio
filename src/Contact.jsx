@@ -60,9 +60,27 @@ function Contact() {
           </div>
 
           <div className="social-icons" style={{ marginTop: "80px" }}>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-x-twitter"></i>
-            <i class="fa-brands fa-square-instagram"></i>
+            <a
+              href="https://www.facebook.com/share/1GiTJsYhda/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa-brands fa-facebook"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/abhishek-kabi-b0838842a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa-brands fa-linkedin"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/abhishekkabi2026?igsh=b2s1NzA3bmZybWdw&igsi=b2s1NzA3bmZybWdw"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="fa-brands fa-square-instagram"></i>
+            </a>
           </div>
         </div>
         {/* <div className="block-two">
