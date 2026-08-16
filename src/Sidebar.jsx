@@ -226,6 +226,7 @@ const Sidebar = ({
                       : "animate__slideOutUp"
                   }`}
                   style={{ cursor: "pointer", marginTop: "15px" }}
+                  onClick={() => handleNavigation("/more-projects")}
                 >
                   <div>
                     <i class="fa-solid fa-gear"></i>
