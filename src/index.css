@@ -3149,7 +3149,7 @@ ul {
 
 @media (min-width: 769px) {
   .banner-container {
-    background-image: url("abhiii.jpg");
+    background-image: url("/abhiii.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
