@@ -51,6 +51,28 @@ const Sidebar = ({
     }
   };
 
+  const handleRedirects = (redirectId) => {
+    if (redirectId === "resume") {
+      window.open(
+        "https://drive.google.com/file/d/1yWmvLV8qdkyCF-MBRG9j9YpWIrG47pUf/view?usp=sharing",
+        "_blank",
+        "noopener,noreferrer",
+      );
+    } else if (redirectId === "github") {
+      window.open(
+        "https://github.com/abk2191",
+        "_blank",
+        "noopener,noreferrer",
+      );
+    } else if (redirectId === "linkedin") {
+      window.open(
+        "https://github.com/abk2191https://www.linkedin.com/in/abhishek-kabi-b0838842a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "_blank",
+        "noopener,noreferrer",
+      );
+    }
+  };
+
   return (
     <div
       ref={sidebarRef}
@@ -296,7 +318,7 @@ const Sidebar = ({
         <div className="source-code-div-wrapper-2">
           <div
             className="source-code-div"
-            onClick={() => handleNavigation("/sourcecode")}
+            onClick={() => handleRedirects("resume")}
             style={{ color: "navy", fontWeight: "bold" }}
           >
             <i class="fa-solid fa-file-pdf"></i>
@@ -306,11 +328,21 @@ const Sidebar = ({
         <div className="source-code-div-wrapper-2">
           <div
             className="source-code-div"
-            onClick={() => handleNavigation("/sourcecode")}
+            onClick={() => handleRedirects("github")}
             style={{ color: "navy", fontWeight: "bold" }}
           >
             <i class="fa-brands fa-github"></i>
             Github
+          </div>
+        </div>
+        <div className="source-code-div-wrapper-2">
+          <div
+            className="source-code-div"
+            onClick={() => handleRedirects("linkedin")}
+            style={{ color: "navy", fontWeight: "bold" }}
+          >
+            <i class="fa-brands fa-linkedin"></i>
+            LinkedIn
           </div>
         </div>
 
