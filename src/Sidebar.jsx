@@ -66,7 +66,7 @@ const Sidebar = ({
       );
     } else if (redirectId === "linkedin") {
       window.open(
-        "https://github.com/abk2191https://www.linkedin.com/in/abhishek-kabi-b0838842a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        "https://www.linkedin.com/in/abhishek-kabi-b0838842a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
         "_blank",
         "noopener,noreferrer",
       );
