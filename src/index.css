@@ -178,7 +178,7 @@ html {
 }
 
 .display-pic {
-  background-image: url("/Ami.png");
+  background-image: url("/abhi2.png");
   background-size: cover;
   height: 25px;
   width: 25px;
@@ -579,7 +579,7 @@ span {
 }
 
 .banner-container {
-  background-image: url("/abhi-banner-3.png");
+  background-image: url("/new-banner-img.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -608,7 +608,8 @@ span {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-radius: 18px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
   padding-bottom: 50px;
 }
 
@@ -3131,7 +3132,7 @@ ul {
   width: 150px;
   border: 3px solid var(--about-profile-border);
   border-radius: 50%;
-  background-image: url("/Ami.png"); /* Adjust the path as needed */
+  background-image: url("/abhi2.png"); /* Adjust the path as needed */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -3150,7 +3151,7 @@ ul {
 
 @media (min-width: 769px) {
   .banner-container {
-    background-image: url("/abhi-banner-3.png");
+    background-image: url("/new-banner-img.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
