@@ -1747,7 +1747,8 @@ ul {
   width: 100%;
   margin-top: -20px;
   border: 1px solid var(--bg-primary);
-  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   background-color: var(--bg-primary);
 }
 
