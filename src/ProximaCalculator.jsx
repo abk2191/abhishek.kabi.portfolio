@@ -22,6 +22,7 @@ function ProximaCalculator({
   const carouselRef = useRef(null);
   const scrollTimeoutRef = useRef(null);
   const [menuItemID, setMenuItemID] = useState("");
+  const [showProductDescription, setShowProductDescription] = useState(true);
 
   const carouselImageUrls = [
     "/calculator-1.jpg",
@@ -43,7 +44,13 @@ function ProximaCalculator({
   };
 
   const handleHomeClick = (id) => {
-    id === "icon" ? setHomeScreenVisible(false) : setHomeScreenVisible(true);
+    if (id === "icon") {
+      setHomeScreenVisible(false);
+      setShowProductDescription(false);
+    } else {
+      setHomeScreenVisible(true);
+      setShowProductDescription(true);
+    }
     // Reset imageId when going back to homescreen
     if (id === "back") {
       setImageId(1);
@@ -239,108 +246,115 @@ function ProximaCalculator({
             </div>
           </div>
 
-          <div>
-            <div className="product-details-section">
-              <div className="menu-holder">
-                <h3 onClick={() => handleMenuClcked("proddesc")}>
-                  ○ Product Description
-                </h3>
-                <div onClick={() => handleMenuClcked("proddesc")}>
-                  <span
-                    style={{
-                      fontSize: "30px",
-                      cursor: "pointer",
-                    }}
-                    className="plus-minus"
-                  >
-                    {menuItemID === "proddesc" ? "-" : "+"}
-                  </span>
+          {showProductDescription && (
+            <div>
+              <div className="product-details-section">
+                <div className="menu-holder">
+                  <h3 onClick={() => handleMenuClcked("proddesc")}>
+                    ○ Product Description
+                  </h3>
+                  <div onClick={() => handleMenuClcked("proddesc")}>
+                    <span
+                      style={{
+                        fontSize: "30px",
+                        cursor: "pointer",
+                      }}
+                      className="plus-minus"
+                    >
+                      {menuItemID === "proddesc" ? "-" : "+"}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              {menuItemID === "proddesc" && (
-                <p className="the-description">
-                  Proxima Calculator is a comprehensive and versatile calculator
-                  application developed by iINTUIT Labs that combines
-                  arithmetic, age, and percentage calculations into a single,
-                  unified platform. The app features a clean, intuitive
-                  interface with full dark/light theme support and persistent
-                  storage of calculation history using AsyncStorage.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Arithmetic Calculator</span>
-                  <br /> The arithmetic calculator provides a full-featured
-                  standard calculator with support for basic operations
-                  including addition, subtraction, multiplication, division, and
-                  percentages. Users can input complex expressions with
-                  parentheses support, view real-time results, and toggle
-                  between calculator view and calculation history.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Age Calculator</span>
-                  <br /> The age calculator allows users to calculate their
-                  exact age by entering their date of birth and selecting a
-                  target date with month, day, and year pickers. The result
-                  displays the age in years, months, days, and also provides
-                  detailed breakdowns in hours, minutes, and seconds for precise
-                  tracking.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Percentage Calculator</span>
-                  <br /> The percentage calculator features three specialized
-                  tabs including standard percentage calculations, common
-                  percentage phrases, and percentage difference calculations.
-                  Each tab provides intuitive input fields, instant calculations
-                  with step-by-step breakdowns, and clear functionality for easy
-                  resetting of values.
-                </p>
-              )}
+                {menuItemID === "proddesc" && (
+                  <p className="the-description">
+                    Proxima Calculator is a comprehensive and versatile
+                    calculator application developed by iINTUIT Labs that
+                    combines arithmetic, age, and percentage calculations into a
+                    single, unified platform. The app features a clean,
+                    intuitive interface with full dark/light theme support and
+                    persistent storage of calculation history using
+                    AsyncStorage.
+                    <br />
+                    <br />
+                    <span className="prod-desc-head">
+                      Arithmetic Calculator
+                    </span>
+                    <br /> The arithmetic calculator provides a full-featured
+                    standard calculator with support for basic operations
+                    including addition, subtraction, multiplication, division,
+                    and percentages. Users can input complex expressions with
+                    parentheses support, view real-time results, and toggle
+                    between calculator view and calculation history.
+                    <br />
+                    <br />
+                    <span className="prod-desc-head">Age Calculator</span>
+                    <br /> The age calculator allows users to calculate their
+                    exact age by entering their date of birth and selecting a
+                    target date with month, day, and year pickers. The result
+                    displays the age in years, months, days, and also provides
+                    detailed breakdowns in hours, minutes, and seconds for
+                    precise tracking.
+                    <br />
+                    <br />
+                    <span className="prod-desc-head">
+                      Percentage Calculator
+                    </span>
+                    <br /> The percentage calculator features three specialized
+                    tabs including standard percentage calculations, common
+                    percentage phrases, and percentage difference calculations.
+                    Each tab provides intuitive input fields, instant
+                    calculations with step-by-step breakdowns, and clear
+                    functionality for easy resetting of values.
+                  </p>
+                )}
 
-              <div className="menu-holder">
-                <h3 onClick={() => handleMenuClcked("techbreak")}>
-                  ○ Technical Breakdown
-                </h3>
-                <div onClick={() => handleMenuClcked("techbreak")}>
-                  <span
-                    style={{
-                      fontSize: "30px",
-                      cursor: "pointer",
-                    }}
-                    className="plus-minus"
-                  >
-                    {menuItemID === "techbreak" ? "-" : "+"}
-                  </span>
+                <div className="menu-holder">
+                  <h3 onClick={() => handleMenuClcked("techbreak")}>
+                    ○ Technical Breakdown
+                  </h3>
+                  <div onClick={() => handleMenuClcked("techbreak")}>
+                    <span
+                      style={{
+                        fontSize: "30px",
+                        cursor: "pointer",
+                      }}
+                      className="plus-minus"
+                    >
+                      {menuItemID === "techbreak" ? "-" : "+"}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              {menuItemID === "techbreak" && (
-                <div className="code-div">
-                  <p className="code-div-heading">Architecture Overview</p>
-                  <p className="code-div-desc">
-                    Proxima Calculator follows a component-based architecture
-                    using React Native, with all state managed within the root
-                    App component. The application is structured as a
-                    single-page application (SPA) with three distinct calculator
-                    modes that users can switch between using the mode menu.
-                  </p>
+                {menuItemID === "techbreak" && (
+                  <div className="code-div">
+                    <p className="code-div-heading">Architecture Overview</p>
+                    <p className="code-div-desc">
+                      Proxima Calculator follows a component-based architecture
+                      using React Native, with all state managed within the root
+                      App component. The application is structured as a
+                      single-page application (SPA) with three distinct
+                      calculator modes that users can switch between using the
+                      mode menu.
+                    </p>
 
-                  <p className="code-div-heading">State Management Pattern</p>
-                  <p className="code-div-desc">
-                    The app employs a centralized state management approach
-                    where all calculator states (arithmetic, age, percentage)
-                    are maintained within the root component. This creates a
-                    single source of truth and simplifies data persistence
-                    across different calculator modes.
-                  </p>
+                    <p className="code-div-heading">State Management Pattern</p>
+                    <p className="code-div-desc">
+                      The app employs a centralized state management approach
+                      where all calculator states (arithmetic, age, percentage)
+                      are maintained within the root component. This creates a
+                      single source of truth and simplifies data persistence
+                      across different calculator modes.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Core state structure
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Core state structure
 const [expression, setExpression] = useState("");
 const [displayExpression, setDisplayExpression] = useState("");
 const [result, setResult] = useState("");
@@ -353,26 +367,28 @@ const [isDarkTheme, setIsDarkTheme] = useState(true);
 const [isArithmatic, setIsArithMatic] = useState(true);
 const [isAgeCalc, setIsAgeCalc] = useState(false);
 const [isPercentageCalc, setIsPercentageCalc] = useState(false);`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Data Persistence Strategy</p>
-                  <p className="code-div-desc">
-                    All data is persisted locally using
-                    @react-native-async-storage/async-storage. The app stores
-                    calculation history and theme preferences with dedicated
-                    storage keys.
-                  </p>
+                    <p className="code-div-heading">
+                      Data Persistence Strategy
+                    </p>
+                    <p className="code-div-desc">
+                      All data is persisted locally using
+                      @react-native-async-storage/async-storage. The app stores
+                      calculation history and theme preferences with dedicated
+                      storage keys.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Saving calculation history
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Saving calculation history
 const saveHistory = async (history) => {
   try {
     await AsyncStorage.setItem("calculator_history", JSON.stringify(history));
@@ -392,29 +408,29 @@ const loadTheme = async () => {
     console.error("Error loading theme:", error);
   }
 };`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">
-                    Arithmetic Calculator Engine
-                  </p>
-                  <p className="code-div-desc">
-                    The arithmetic calculator uses a custom expression
-                    evaluation engine that supports basic operations,
-                    parentheses, and percentage calculations. Expressions are
-                    sanitized and evaluated using JavaScript's eval function
-                    after proper formatting.
-                  </p>
+                    <p className="code-div-heading">
+                      Arithmetic Calculator Engine
+                    </p>
+                    <p className="code-div-desc">
+                      The arithmetic calculator uses a custom expression
+                      evaluation engine that supports basic operations,
+                      parentheses, and percentage calculations. Expressions are
+                      sanitized and evaluated using JavaScript's eval function
+                      after proper formatting.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Expression evaluation
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Expression evaluation
 const evaluateExpression = useCallback(() => {
   try {
     if (expression.trim() === "") {
@@ -441,26 +457,26 @@ const evaluateExpression = useCallback(() => {
     setResult("Error");
   }
 }, [expression, displayExpression]);`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Formatting and Display</p>
-                  <p className="code-div-desc">
-                    The app includes sophisticated number formatting with comma
-                    separation for thousands, making large numbers more
-                    readable. The expression display also highlights operators
-                    with distinct colors for better visual clarity.
-                  </p>
+                    <p className="code-div-heading">Formatting and Display</p>
+                    <p className="code-div-desc">
+                      The app includes sophisticated number formatting with
+                      comma separation for thousands, making large numbers more
+                      readable. The expression display also highlights operators
+                      with distinct colors for better visual clarity.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Number formatting with commas
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Number formatting with commas
 const formatNumberWithCommas = useCallback((numberString) => {
   if (!numberString) return "";
   const cleanNumberString = numberString.replace(/,/g, "");
@@ -502,27 +518,27 @@ const renderOperationDisplay = useMemo(() => {
     </Text>
   );
 }, [displayExpression, isDarkTheme]);`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Age Calculator</p>
-                  <p className="code-div-desc">
-                    The age calculator computes exact age between a birth date
-                    and a target date. It handles month and day differences
-                    correctly, accounting for varying month lengths and leap
-                    years. Results are displayed in years, months, days, hours,
-                    minutes, and seconds.
-                  </p>
+                    <p className="code-div-heading">Age Calculator</p>
+                    <p className="code-div-desc">
+                      The age calculator computes exact age between a birth date
+                      and a target date. It handles month and day differences
+                      correctly, accounting for varying month lengths and leap
+                      years. Results are displayed in years, months, days,
+                      hours, minutes, and seconds.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Age calculation logic
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Age calculation logic
 function calculateAge() {
   const birthDate = new Date(dob.year, getMonthNumber(dob.month), dob.day);
   const targetDate = new Date(
@@ -551,27 +567,27 @@ function calculateAge() {
   const minutes = Math.floor(timeDiff / (1000 * 60));
   const seconds = Math.floor(timeDiff / 1000);
 }`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Percentage Calculator</p>
-                  <p className="code-div-desc">
-                    The percentage calculator features three specialized tabs:
-                    standard percentage calculations, common percentage phrases,
-                    and percentage difference calculations. Each tab provides
-                    intuitive input fields with instant calculation results and
-                    step-by-step breakdowns.
-                  </p>
+                    <p className="code-div-heading">Percentage Calculator</p>
+                    <p className="code-div-desc">
+                      The percentage calculator features three specialized tabs:
+                      standard percentage calculations, common percentage
+                      phrases, and percentage difference calculations. Each tab
+                      provides intuitive input fields with instant calculation
+                      results and step-by-step breakdowns.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Standard percentage calculation
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Standard percentage calculation
 const calculateStandardPercentage = () => {
   const percent = parseFloat(standardPercent);
   const of = parseFloat(standardOf);
@@ -599,26 +615,26 @@ const calculateDifference = () => {
     \`|\${v1} - \${v2}| / ((\${v1} + \${v2})/2) × 100 = \${difference}%\`
   );
 };`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Mode Navigation</p>
-                  <p className="code-div-desc">
-                    The app features a mode menu that allows users to switch
-                    between arithmetic, age, and percentage calculators. The
-                    menu is implemented as a modal overlay with smooth
-                    animations.
-                  </p>
+                    <p className="code-div-heading">Mode Navigation</p>
+                    <p className="code-div-desc">
+                      The app features a mode menu that allows users to switch
+                      between arithmetic, age, and percentage calculators. The
+                      menu is implemented as a modal overlay with smooth
+                      animations.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Mode menu toggle
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Mode menu toggle
 const toggleModeMenu = () => {
   setModeactive(!modeactive);
 };
@@ -637,48 +653,54 @@ const toggleModeMenu = () => {
     <FontAwesome6 name="plus-minus" size={12} /> ARITHMATIC CALCULATOR
   </Text>
 </TouchableOpacity>`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Data Flow Summary</p>
-                  <p className="code-div-desc">
-                    User Input → Expression State Update → Display Formatting →
-                    Evaluation → Result Display → History Storage
-                    <br />
-                    Theme Toggle → Theme State Update → Style Recalculation → UI
-                    Update → Theme Persistence
-                    <br />
-                    Mode Switch → Mode State Update → Component Re-render → UI
-                    Transition
-                  </p>
-                  <p className="code-div-desc" style={{ marginTop: "10px" }}>
-                    This architecture ensures smooth user interactions,
-                    consistent data management, and reliable persistence across
-                    all calculator modes and features.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="get-button">
-            <button className="contactButton" onClick={() => handleClick("PC")}>
-              Try Proxima Calculator
-              <div className="iconButton">
-                <svg
-                  height="24"
-                  width="24"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
+                    <p className="code-div-heading">Data Flow Summary</p>
+                    <p className="code-div-desc">
+                      User Input → Expression State Update → Display Formatting
+                      → Evaluation → Result Display → History Storage
+                      <br />
+                      Theme Toggle → Theme State Update → Style Recalculation →
+                      UI Update → Theme Persistence
+                      <br />
+                      Mode Switch → Mode State Update → Component Re-render → UI
+                      Transition
+                    </p>
+                    <p className="code-div-desc" style={{ marginTop: "10px" }}>
+                      This architecture ensures smooth user interactions,
+                      consistent data management, and reliable persistence
+                      across all calculator modes and features.
+                    </p>
+                  </div>
+                )}
               </div>
-            </button>
-          </div>
+            </div>
+          )}
+
+          {showProductDescription && (
+            <div className="get-button">
+              <button
+                className="contactButton"
+                onClick={() => handleClick("PC")}
+              >
+                Try Proxima Calculator
+                <div className="iconButton">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          )}
         </div>
       )}
       {showDownloadPage && (

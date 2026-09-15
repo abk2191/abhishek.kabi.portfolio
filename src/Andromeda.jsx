@@ -37,7 +37,7 @@ function Andromeda({
   const carouselRef = useRef(null);
   const scrollTimeoutRef = useRef(null);
   const [menuItemID, setMenuItemID] = useState("");
-
+  const [showProductDescription, setShowProductDescription] = useState(true);
   const codeString = `
   // Typical state structure in the root component
   const [notes, setNotes] = useState([]);
@@ -86,7 +86,13 @@ const handleGoogleSignIn = async () => {
   };
 
   const handleHomeClick = (id) => {
-    id === "icon" ? setHomeScreenVisible(false) : setHomeScreenVisible(true);
+    if (id === "icon") {
+      setHomeScreenVisible(false);
+      setShowProductDescription(false);
+    } else {
+      setHomeScreenVisible(true);
+      setShowProductDescription(true);
+    }
     // Reset imageId when going back to homescreen
     if (id === "back") {
       setImageId(1);
@@ -293,194 +299,198 @@ const handleGoogleSignIn = async () => {
             </div>
           </div>
 
-          <div>
-            <div className="product-details-section">
-              <div className="menu-holder">
-                <h3 onClick={() => handleMenuClcked("proddesc")}>
-                  ○ Product Description
-                </h3>
-                <div onClick={() => handleMenuClcked("proddesc")}>
-                  <span
-                    style={{
-                      fontSize: "30px",
-                      cursor: "pointer",
-                    }}
-                    className="plus-minus"
-                  >
-                    {menuItemID === "proddesc" ? "-" : "+"}
-                  </span>
+          {showProductDescription && (
+            <div>
+              <div className="product-details-section">
+                <div className="menu-holder">
+                  <h3 onClick={() => handleMenuClcked("proddesc")}>
+                    ○ Product Description
+                  </h3>
+                  <div onClick={() => handleMenuClcked("proddesc")}>
+                    <span
+                      style={{
+                        fontSize: "30px",
+                        cursor: "pointer",
+                      }}
+                      className="plus-minus"
+                    >
+                      {menuItemID === "proddesc" ? "-" : "+"}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              {menuItemID === "proddesc" && (
-                <p className="the-description">
-                  Theory is a comprehensive mobile productivity application
-                  developed by iINTUIT Labs that serves as a central hub for
-                  personal knowledge management, integrating multiple content
-                  types into a single, cohesive platform. The app features a
-                  clean, intuitive interface with full dark/light theme support
-                  and Google Sign-In authentication for data synchronization.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Notes</span>
-                  <br /> Notes is the primary content creation tool that allows
-                  users to capture and organize their thoughts in a flexible,
-                  customizable format with a two-column grid layout. Notes can
-                  be pinned, searched, archived, or moved to the bin, with the
-                  editor modal providing a full-screen writing experience with
-                  adjustable font sizes and automatic saving.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Drawing</span>
-                  <br /> Drawing is a creative canvas tool built on the
-                  high-performance Skia graphics library that allows users to
-                  sketch and create visual content with smooth rendering and
-                  responsive touch interactions. Users can choose from twelve
-                  distinct colors and adjust stroke widths, with each drawing
-                  saved with a timestamp and stroke count for easy reference.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Lists</span>
-                  <br /> Lists is a comprehensive task management system that
-                  enables users to create and track checklists with a title and
-                  dynamic collection of tasks that can be added, completed, or
-                  removed in real-time. Tasks are displayed with interactive
-                  checkboxes and progress summaries, with lists being
-                  color-coded, pinned, and automatically saved when the editor
-                  is closed.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Calendar</span>
-                  <br /> Calendar is a full-featured event management and
-                  scheduling system that displays a monthly grid view where each
-                  day is represented as a cell with visual indicators showing
-                  which dates have events scheduled. Users can navigate between
-                  months, toggle to a year view, set multi-day events, log daily
-                  moods, and schedule reminders using the integrated
-                  notification system.
-                  <br />
-                  <br />
-                  <span className="prod-desc-head">Mindmap</span>
-                  <br /> Mindmap is a visual thinking and brainstorming tool
-                  that allows users to create hierarchical diagrams for
-                  organizing ideas using a tree-based architecture with
-                  unlimited nesting depth. Each node features editable text and
-                  customizable colors from a palette of sixteen options, with
-                  zoom controls and full CRUD operations including creation,
-                  editing, deletion, and archiving.
-                </p>
-              )}
+                {menuItemID === "proddesc" && (
+                  <p className="the-description">
+                    Theory is a comprehensive mobile productivity application
+                    developed by iINTUIT Labs that serves as a central hub for
+                    personal knowledge management, integrating multiple content
+                    types into a single, cohesive platform. The app features a
+                    clean, intuitive interface with full dark/light theme
+                    support and Google Sign-In authentication for data
+                    synchronization.
+                    <br />
+                    <br />
+                    <span className="prod-desc-head">Notes</span>
+                    <br /> Notes is the primary content creation tool that
+                    allows users to capture and organize their thoughts in a
+                    flexible, customizable format with a two-column grid layout.
+                    Notes can be pinned, searched, archived, or moved to the
+                    bin, with the editor modal providing a full-screen writing
+                    experience with adjustable font sizes and automatic saving.
+                    <br />
+                    <br />
+                    <span className="prod-desc-head">Drawing</span>
+                    <br /> Drawing is a creative canvas tool built on the
+                    high-performance Skia graphics library that allows users to
+                    sketch and create visual content with smooth rendering and
+                    responsive touch interactions. Users can choose from twelve
+                    distinct colors and adjust stroke widths, with each drawing
+                    saved with a timestamp and stroke count for easy reference.
+                    <br />
+                    <br />
+                    <span className="prod-desc-head">Lists</span>
+                    <br /> Lists is a comprehensive task management system that
+                    enables users to create and track checklists with a title
+                    and dynamic collection of tasks that can be added,
+                    completed, or removed in real-time. Tasks are displayed with
+                    interactive checkboxes and progress summaries, with lists
+                    being color-coded, pinned, and automatically saved when the
+                    editor is closed.
+                    <br />
+                    <br />
+                    <span className="prod-desc-head">Calendar</span>
+                    <br /> Calendar is a full-featured event management and
+                    scheduling system that displays a monthly grid view where
+                    each day is represented as a cell with visual indicators
+                    showing which dates have events scheduled. Users can
+                    navigate between months, toggle to a year view, set
+                    multi-day events, log daily moods, and schedule reminders
+                    using the integrated notification system.
+                    <br />
+                    <br />
+                    <span className="prod-desc-head">Mindmap</span>
+                    <br /> Mindmap is a visual thinking and brainstorming tool
+                    that allows users to create hierarchical diagrams for
+                    organizing ideas using a tree-based architecture with
+                    unlimited nesting depth. Each node features editable text
+                    and customizable colors from a palette of sixteen options,
+                    with zoom controls and full CRUD operations including
+                    creation, editing, deletion, and archiving.
+                  </p>
+                )}
 
-              <div className="menu-holder">
-                <h3 onClick={() => handleMenuClcked("techbreak")}>
-                  ○ Technical Breakdown
-                </h3>
-                <div onClick={() => handleMenuClcked("techbreak")}>
-                  <span
-                    style={{
-                      fontSize: "30px",
-                      cursor: "pointer",
-                    }}
-                    className="plus-minus"
-                  >
-                    {menuItemID === "techbreak" ? "-" : "+"}
-                  </span>
+                <div className="menu-holder">
+                  <h3 onClick={() => handleMenuClcked("techbreak")}>
+                    ○ Technical Breakdown
+                  </h3>
+                  <div onClick={() => handleMenuClcked("techbreak")}>
+                    <span
+                      style={{
+                        fontSize: "30px",
+                        cursor: "pointer",
+                      }}
+                      className="plus-minus"
+                    >
+                      {menuItemID === "techbreak" ? "-" : "+"}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              {menuItemID === "techbreak" && (
-                <div className="code-div">
-                  <p className="code-div-heading">Architecture Overview</p>
-                  <p className="code-div-desc">
-                    The Theory app follows a component-based architecture using
-                    React Native, with a unidirectional data flow pattern where
-                    state is managed at the parent component level and passed
-                    down to child components via props. The application is
-                    structured as a single-page application (SPA) with a
-                    navigation system powered by a sidebar that switches between
-                    different content views.
-                  </p>
+                {menuItemID === "techbreak" && (
+                  <div className="code-div">
+                    <p className="code-div-heading">Architecture Overview</p>
+                    <p className="code-div-desc">
+                      The Theory app follows a component-based architecture
+                      using React Native, with a unidirectional data flow
+                      pattern where state is managed at the parent component
+                      level and passed down to child components via props. The
+                      application is structured as a single-page application
+                      (SPA) with a navigation system powered by a sidebar that
+                      switches between different content views.
+                    </p>
 
-                  <p className="code-div-heading">State Management Pattern</p>
-                  <p className="code-div-desc">
-                    The app employs a lifted state approach where all data
-                    (notes, lists, mindmaps, drawings, calendar events) is
-                    maintained in the root App.js component (implied) and passed
-                    down to child components. This creates a single source of
-                    truth and simplifies data persistence.
-                  </p>
+                    <p className="code-div-heading">State Management Pattern</p>
+                    <p className="code-div-desc">
+                      The app employs a lifted state approach where all data
+                      (notes, lists, mindmaps, drawings, calendar events) is
+                      maintained in the root App.js component (implied) and
+                      passed down to child components. This creates a single
+                      source of truth and simplifies data persistence.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {codeString}
-                  </SyntaxHighlighter>
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {codeString}
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Data Persistence Strategy</p>
-                  <p className="code-div-desc">
-                    All data is persisted locally using
-                    @react-native-async-storage/async-storage. Each content type
-                    has dedicated storage keys, and data is serialized to JSON
-                    before storage.
-                  </p>
+                    <p className="code-div-heading">
+                      Data Persistence Strategy
+                    </p>
+                    <p className="code-div-desc">
+                      All data is persisted locally using
+                      @react-native-async-storage/async-storage. Each content
+                      type has dedicated storage keys, and data is serialized to
+                      JSON before storage.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {codeString2}
-                  </SyntaxHighlighter>
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {codeString2}
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Firebase Authentication</p>
-                  <p className="code-div-desc">
-                    User authentication is handled through Firebase
-                    Authentication with Google Sign-In integration. The
-                    signInWithGoogle() function from the firebase service
-                    manages the OAuth flow.
-                  </p>
+                    <p className="code-div-heading">Firebase Authentication</p>
+                    <p className="code-div-desc">
+                      User authentication is handled through Firebase
+                      Authentication with Google Sign-In integration. The
+                      signInWithGoogle() function from the firebase service
+                      manages the OAuth flow.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {codeString3}
-                  </SyntaxHighlighter>
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {codeString3}
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">
-                    Component Communication Pattern
-                  </p>
-                  <p className="code-div-desc">
-                    The app extensively uses prop drilling to pass both data and
-                    functions down the component tree. Each screen component
-                    receives data arrays, setter functions for state updates,
-                    and CRUD operation functions (create, update, delete,
-                    archive, restore).
-                  </p>
+                    <p className="code-div-heading">
+                      Component Communication Pattern
+                    </p>
+                    <p className="code-div-desc">
+                      The app extensively uses prop drilling to pass both data
+                      and functions down the component tree. Each screen
+                      component receives data arrays, setter functions for state
+                      updates, and CRUD operation functions (create, update,
+                      delete, archive, restore).
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Notes.js receives numerous props for data manipulation
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Notes.js receives numerous props for data manipulation
 export default function Notes({
   notes,
   setNotes,
@@ -500,25 +510,25 @@ export default function Notes({
 }) {
   // Component logic...
 }`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Modal-Based Editing</p>
-                  <p className="code-div-desc">
-                    Each content type uses a full-screen modal for editing. The
-                    modal slides up from the bottom with smooth animations using
-                    React Native's Animated API.
-                  </p>
+                    <p className="code-div-heading">Modal-Based Editing</p>
+                    <p className="code-div-desc">
+                      Each content type uses a full-screen modal for editing.
+                      The modal slides up from the bottom with smooth animations
+                      using React Native's Animated API.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// From NoteEditorModal.js - Animation setup
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// From NoteEditorModal.js - Animation setup
 const slideAnim = useRef(new Animated.Value(screenHeight)).current;
 const fadeAnim = useRef(new Animated.Value(0)).current;
 
@@ -539,33 +549,35 @@ useEffect(() => {
     ]).start();
   }
 }, [visible, note]);`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Content Management Systems</p>
-                  <p
-                    className="code-div-heading"
-                    style={{ fontSize: "16px", marginTop: "10px" }}
-                  >
-                    Notes System
-                  </p>
-                  <p className="code-div-desc">
-                    The Notes system features a two-column grid layout with
-                    pinned/unpinned sections. Each note card displays a
-                    truncated preview and includes color customization. Notes
-                    and Lists use a predefined color array with both background
-                    and text color pairs.
-                  </p>
+                    <p className="code-div-heading">
+                      Content Management Systems
+                    </p>
+                    <p
+                      className="code-div-heading"
+                      style={{ fontSize: "16px", marginTop: "10px" }}
+                    >
+                      Notes System
+                    </p>
+                    <p className="code-div-desc">
+                      The Notes system features a two-column grid layout with
+                      pinned/unpinned sections. Each note card displays a
+                      truncated preview and includes color customization. Notes
+                      and Lists use a predefined color array with both
+                      background and text color pairs.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Notes.js - Rendering notes in a flex grid
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Notes.js - Rendering notes in a flex grid
 const renderFlexSection = (postsArray, sectionTitle, showTitle = true) => {
   return (
     <View>
@@ -588,30 +600,30 @@ const COLOR_ARRAY = [
   { bg: "#1B5E20", text: "#E8F5E9" },
   // ... more color combinations
 ];`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p
-                    className="code-div-heading"
-                    style={{ fontSize: "16px", marginTop: "10px" }}
-                  >
-                    Lists System
-                  </p>
-                  <p className="code-div-desc">
-                    Lists implement a task management system with checkbox
-                    toggling. Each list tracks task completion status and
-                    displays progress.
-                  </p>
+                    <p
+                      className="code-div-heading"
+                      style={{ fontSize: "16px", marginTop: "10px" }}
+                    >
+                      Lists System
+                    </p>
+                    <p className="code-div-desc">
+                      Lists implement a task management system with checkbox
+                      toggling. Each list tracks task completion status and
+                      displays progress.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// ListEditorModal.js - Task rendering with checkbox
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// ListEditorModal.js - Task rendering with checkbox
 const renderTaskItem = ({ item }) => (
   <View style={styles.taskItem}>
     <TouchableOpacity onPress={() => handleToggleTaskCompletion(item.id)}>
@@ -627,31 +639,32 @@ const renderTaskItem = ({ item }) => (
     </TouchableOpacity>
   </View>
 );`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p
-                    className="code-div-heading"
-                    style={{ fontSize: "16px", marginTop: "10px" }}
-                  >
-                    Mindmap System
-                  </p>
-                  <p className="code-div-desc">
-                    The Mindmap uses a tree structure where each node has: id
-                    (unique identifier), text (node content), parentId
-                    (reference to parent node, null for root), children (array
-                    of child node IDs), and color/textColor for visual styling.
-                  </p>
+                    <p
+                      className="code-div-heading"
+                      style={{ fontSize: "16px", marginTop: "10px" }}
+                    >
+                      Mindmap System
+                    </p>
+                    <p className="code-div-desc">
+                      The Mindmap uses a tree structure where each node has: id
+                      (unique identifier), text (node content), parentId
+                      (reference to parent node, null for root), children (array
+                      of child node IDs), and color/textColor for visual
+                      styling.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Mindmap.js - Rendering a node with its children recursively
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Mindmap.js - Rendering a node with its children recursively
 const renderNode = (node, level = 0) => {
   const children = node.children
     .map((id) => activeMindmap?.nodes.find((n) => n.id === id))
@@ -676,30 +689,30 @@ const renderNode = (node, level = 0) => {
     </View>
   );
 };`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p
-                    className="code-div-heading"
-                    style={{ fontSize: "16px", marginTop: "10px" }}
-                  >
-                    Drawing System
-                  </p>
-                  <p className="code-div-desc">
-                    The Drawing tool uses Skia (@shopify/react-native-skia) for
-                    high-performance canvas rendering and PanResponder for
-                    gesture handling.
-                  </p>
+                    <p
+                      className="code-div-heading"
+                      style={{ fontSize: "16px", marginTop: "10px" }}
+                    >
+                      Drawing System
+                    </p>
+                    <p className="code-div-desc">
+                      The Drawing tool uses Skia (@shopify/react-native-skia)
+                      for high-performance canvas rendering and PanResponder for
+                      gesture handling.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Drawing.js - PanResponder setup for stroke capture
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Drawing.js - PanResponder setup for stroke capture
 const panResponder = useRef(
   PanResponder.create({
     onStartShouldSetPanResponder: () => true,
@@ -754,30 +767,31 @@ const renderPath = (pathData) => {
     />
   );
 };`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p
-                    className="code-div-heading"
-                    style={{ fontSize: "16px", marginTop: "10px" }}
-                  >
-                    Calendar System
-                  </p>
-                  <p className="code-div-desc">
-                    The Calendar implements a monthly grid view with event
-                    tracking, mood logging, and color coding. Events are stored
-                    with a date key system (YYYY-M-D) for efficient lookups.
-                  </p>
+                    <p
+                      className="code-div-heading"
+                      style={{ fontSize: "16px", marginTop: "10px" }}
+                    >
+                      Calendar System
+                    </p>
+                    <p className="code-div-desc">
+                      The Calendar implements a monthly grid view with event
+                      tracking, mood logging, and color coding. Events are
+                      stored with a date key system (YYYY-M-D) for efficient
+                      lookups.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Calendar.js - Event object structure
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Calendar.js - Event object structure
 {
   id: timestamp,
   name: "Event Name",
@@ -814,30 +828,30 @@ const getAllMonthsForYear = (year) => {
   }
   return monthsData;
 };`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p
-                    className="code-div-heading"
-                    style={{ fontSize: "16px", marginTop: "10px" }}
-                  >
-                    Archive and Deleted Systems
-                  </p>
-                  <p className="code-div-desc">
-                    Both Archive and Deleted components share similar logic for
-                    managing content lifecycle with restore and permanent delete
-                    options.
-                  </p>
+                    <p
+                      className="code-div-heading"
+                      style={{ fontSize: "16px", marginTop: "10px" }}
+                    >
+                      Archive and Deleted Systems
+                    </p>
+                    <p className="code-div-desc">
+                      Both Archive and Deleted components share similar logic
+                      for managing content lifecycle with restore and permanent
+                      delete options.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Archive.js - Rendering archived notes with restore/delete options
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Archive.js - Rendering archived notes with restore/delete options
 const renderNoteCard = (note) => {
   return (
     <TouchableOpacity style={[styles.card, { backgroundColor: note.color }]}>
@@ -863,25 +877,25 @@ const renderNoteCard = (note) => {
     </TouchableOpacity>
   );
 };`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Theme System</p>
-                  <p className="code-div-desc">
-                    The app implements a dynamic theme system that affects all
-                    components. Theme state is managed at the root level and
-                    passed down through props.
-                  </p>
+                    <p className="code-div-heading">Theme System</p>
+                    <p className="code-div-desc">
+                      The app implements a dynamic theme system that affects all
+                      components. Theme state is managed at the root level and
+                      passed down through props.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Settings.js - Theme toggle
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Settings.js - Theme toggle
 const [isDarkTheme, setIsDarkTheme] = useState(false);
 
 // Each component checks isDarkTheme for styling
@@ -892,32 +906,33 @@ const getBackgroundColor = () => {
 const getTextColor = () => {
   return isDarkTheme ? "#FFFFFF" : "#000033";
 };`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Navigation Architecture</p>
-                  <p
-                    className="code-div-heading"
-                    style={{ fontSize: "16px", marginTop: "10px" }}
-                  >
-                    Sidebar Navigation
-                  </p>
-                  <p className="code-div-desc">
-                    The Sidebar component uses Animated API for smooth
-                    slide-in/slide-out transitions. The navigation state is
-                    managed at the parent level. The sidebar is divided into
-                    main content items and system items with visual separation.
-                  </p>
+                    <p className="code-div-heading">Navigation Architecture</p>
+                    <p
+                      className="code-div-heading"
+                      style={{ fontSize: "16px", marginTop: "10px" }}
+                    >
+                      Sidebar Navigation
+                    </p>
+                    <p className="code-div-desc">
+                      The Sidebar component uses Animated API for smooth
+                      slide-in/slide-out transitions. The navigation state is
+                      managed at the parent level. The sidebar is divided into
+                      main content items and system items with visual
+                      separation.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Sidebar.js - Animation logic
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Sidebar.js - Animation logic
 const slideAnim = useRef(new Animated.Value(-SIDEBAR_WIDTH)).current;
 const overlayOpacity = useRef(new Animated.Value(0)).current;
 
@@ -952,24 +967,24 @@ const systemitems = [
   { name: "Deleted", icon: "trash-can", label: "Bin" },
   { name: "Settings", icon: "gear", label: "Settings" },
 ];`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Notification System</p>
-                  <p className="code-div-desc">
-                    The Calendar component integrates with Expo Notifications
-                    for reminder functionality.
-                  </p>
+                    <p className="code-div-heading">Notification System</p>
+                    <p className="code-div-desc">
+                      The Calendar component integrates with Expo Notifications
+                      for reminder functionality.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// NotificationModal.js - Scheduling notifications
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// NotificationModal.js - Scheduling notifications
 const scheduleReminder = async () => {
   const hasPermission = await requestPermissions();
   if (!hasPermission) return;
@@ -987,24 +1002,24 @@ const scheduleReminder = async () => {
     },
   });
 };`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Search Functionality</p>
-                  <p className="code-div-desc">
-                    Both Notes and Lists implement real-time search with
-                    case-insensitive matching.
-                  </p>
+                    <p className="code-div-heading">Search Functionality</p>
+                    <p className="code-div-desc">
+                      Both Notes and Lists implement real-time search with
+                      case-insensitive matching.
+                    </p>
 
-                  <SyntaxHighlighter
-                    language="javascript"
-                    customStyle={{
-                      backgroundColor: "#f5f5f5",
-                      padding: "20px",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {`// Notes.js - Filtering notes by search term
+                    <SyntaxHighlighter
+                      language="javascript"
+                      customStyle={{
+                        backgroundColor: "#f5f5f5",
+                        padding: "20px",
+                        borderRadius: "8px",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {`// Notes.js - Filtering notes by search term
 const filteredNotes = notesSearchTerm.trim() === ""
   ? notes
   : notes.filter(
@@ -1012,53 +1027,57 @@ const filteredNotes = notesSearchTerm.trim() === ""
         note.sentence.toLowerCase().includes(notesSearchTerm.toLowerCase()) ||
         note.title.toLowerCase().includes(notesSearchTerm.toLowerCase())
     );`}
-                  </SyntaxHighlighter>
+                    </SyntaxHighlighter>
 
-                  <p className="code-div-heading">Data Flow Summary</p>
-                  <p className="code-div-desc">
-                    User Action → Component triggers an event (e.g., adding a
-                    note)
-                    <br />
-                    State Update → Parent state is updated via setter functions
-                    <br />
-                    Re-render → React re-renders affected components
-                    <br />
-                    Persistence → Data is saved to AsyncStorage
-                    <br />
-                    User Feedback → UI updates reflect the new state
-                  </p>
-                  <p className="code-div-desc" style={{ marginTop: "10px" }}>
-                    This architecture ensures data consistency, smooth user
-                    interactions, and reliable persistence across all
-                    application features.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="get-button">
-            <button
-              className="contactButton"
-              onClick={() => handleClick("theory")}
-            >
-              Try Theory.
-              <div className="iconButton">
-                <svg
-                  height="24"
-                  width="24"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
+                    <p className="code-div-heading">Data Flow Summary</p>
+                    <p className="code-div-desc">
+                      User Action → Component triggers an event (e.g., adding a
+                      note)
+                      <br />
+                      State Update → Parent state is updated via setter
+                      functions
+                      <br />
+                      Re-render → React re-renders affected components
+                      <br />
+                      Persistence → Data is saved to AsyncStorage
+                      <br />
+                      User Feedback → UI updates reflect the new state
+                    </p>
+                    <p className="code-div-desc" style={{ marginTop: "10px" }}>
+                      This architecture ensures data consistency, smooth user
+                      interactions, and reliable persistence across all
+                      application features.
+                    </p>
+                  </div>
+                )}
               </div>
-            </button>
-          </div>
+            </div>
+          )}
+
+          {showProductDescription && (
+            <div className="get-button">
+              <button
+                className="contactButton"
+                onClick={() => handleClick("theory")}
+              >
+                Try Theory.
+                <div className="iconButton">
+                  <svg
+                    height="24"
+                    width="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          )}
         </div>
       )}
       {showDownloadPage && (
