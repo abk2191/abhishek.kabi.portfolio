@@ -246,6 +246,12 @@ function ProximaCalculator({
             </div>
           </div>
 
+          {!showProductDescription && (
+            <p style={{ textAlign: "center" }}>
+              Click on nav buttons to close the app
+            </p>
+          )}
+
           {showProductDescription && (
             <div>
               <div className="product-details-section">
