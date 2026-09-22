@@ -484,9 +484,6 @@ function Profile() {
 
           {myPhotosClicked && (
             <div className="about">
-              <div className="photo-wrapper">
-                <div className="profile-picture-about"></div>
-              </div>
               <p className="my-about">
                 Hi, I'm Abhishek, a self-taught software developer with a
                 passion for building things and understanding how they work. My
