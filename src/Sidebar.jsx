@@ -170,6 +170,23 @@ const Sidebar = ({
                   </div>
                   <p>Proxima Calculator (React Native)</p>
                 </div>
+                <div
+                  className={`menu-item-div animate__animated ${
+                    projectsClicked
+                      ? "animate__slideInDown"
+                      : "animate__slideOutUp"
+                  }`}
+                  // onClick={() => handleNavigation("/proxima-calculator")}
+                  style={{ cursor: "pointer", marginLeft: "12px" }}
+                >
+                  <div className="image-cont-2">
+                    <img
+                      src="/permanote-one.png"
+                      style={{ height: "22px", width: "22px" }}
+                    />{" "}
+                  </div>
+                  <p>Permanote (React Native)</p>
+                </div>
 
                 {/* <div className="menu-item-div">
                   <div className="image-cont-4">

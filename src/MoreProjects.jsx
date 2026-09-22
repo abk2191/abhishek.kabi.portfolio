@@ -9,6 +9,7 @@ function MoreProjects() {
       memory: "https://abk2191.github.io/memory-match/",
       weather: "https://abk2191.github.io/Weather-Report/",
       iintuit: "https://iintuitlabs.vercel.app",
+      chocolate: "https://thechocolatecompany.vercel.app",
     };
 
     if (links[project]) {
@@ -23,7 +24,32 @@ function MoreProjects() {
       <div className="more-projects-container">
         <h1 style={{ marginTop: "30px" }}>More Projects</h1>
         <div className="project-holders">
-          <h2>1. Quotes (React)</h2>
+          <h2>
+            1. E-Commerce & Order Management System - The Chocolate Company.
+          </h2>
+          <p>
+            "This project is a real-world e-commerce and order-management
+            platform for a small chocolate business, built with React, Firebase,
+            and Vercel. It provides customers with product browsing,
+            customizable chocolates, Google authentication, persistent carts,
+            QR-based payment instructions, and real-time order tracking. A
+            separate owner dashboard manages customer orders, customer details,
+            products, revenue, and order-status updates from Pending through
+            Delivered."
+          </p>
+          <div className="try-btn-div">
+            <button
+              className="quote-try-button"
+              onClick={() => handleTryButton("chocolate")}
+            >
+              <span className="shadow"></span>
+              <span className="edge"></span>
+              <span className="front text"> Try</span>
+            </button>
+          </div>
+        </div>
+        <div className="project-holders">
+          <h2>2. Quotes (React)</h2>
           <p>
             "A simple yet elegant React-based quote generator that fetches
             inspirational quotes from a serverless API, displaying them with a
@@ -43,7 +69,7 @@ function MoreProjects() {
           </div>
         </div>
         <div className="project-holders">
-          <h2>2. Pomodoro (React)</h2>
+          <h2>3. Pomodoro (React)</h2>
           <p>
             "This React-powered Pomodoro app helps you stay productive with
             customizable work/break timers, visual progress tracking, and sound
@@ -61,7 +87,7 @@ function MoreProjects() {
           </div>
         </div>
         <div className="project-holders">
-          <h2>3. Wordle Game (Javascript)</h2>
+          <h2>4. Wordle Game (Javascript)</h2>
           <p>
             "This Wordle clone is built with vanilla JavaScript using an
             event-driven architecture that captures both keyboard and on-screen
@@ -83,7 +109,7 @@ function MoreProjects() {
           </div>
         </div>
         <div className="project-holders">
-          <h2>4. Memory Match Game (React)</h2>
+          <h2>5. Memory Match Game (React)</h2>
           <p>
             "This React-powered memory game challenges players to memorize a
             shuffled set of randomly generated numbers (3-7 depending on
@@ -103,7 +129,7 @@ function MoreProjects() {
           </div>
         </div>
         <div className="project-holders">
-          <h2>5. Weather Report (React)</h2>
+          <h2>6. Weather Report (React)</h2>
           <p>
             "This vanilla JavaScript weather application fetches real-time
             weather data and a 5-day forecast from the OpenWeatherMap API, using
@@ -122,7 +148,7 @@ function MoreProjects() {
           </div>
         </div>
         <div className="project-holders">
-          <h2>6. iINTUIT Labs.</h2>
+          <h2>7. iINTUIT Labs.</h2>
           <p>
             I’ve always had an ambition to build something of my own, which is
             why I started working on an idea called iIntuit Labs. It’s a concept
