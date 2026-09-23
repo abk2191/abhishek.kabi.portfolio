@@ -9,7 +9,7 @@ function MoreProjects() {
       memory: "https://abk2191.github.io/memory-match/",
       weather: "https://abk2191.github.io/Weather-Report/",
       iintuit: "https://iintuitlabs.vercel.app",
-      chocolate: "https://thechocolatecompany.vercel.app",
+      chocolate: "https://thechocolatecompany.in",
     };
 
     if (links[project]) {
