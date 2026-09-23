@@ -352,7 +352,7 @@ function Profile() {
                   </div>
                 </div>
                 <div className="post-text">
-                  <p>BTM Bangalore, FAB Hotel.</p>
+                  <p>@ home.</p>
                 </div>
                 <div className="post-wrapper">
                   <div className="post-upload"></div>
