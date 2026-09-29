@@ -275,7 +275,7 @@ function Profile() {
                   </div>
                 </div>
                 <div className="post-text">
-                  <p>Just another day building software...📱💻</p>
+                  <p>Posing...📱</p>
                 </div>
                 <div className="post-wrapper">
                   <div className="profile-picture-small-post"></div>
