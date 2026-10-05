@@ -579,7 +579,7 @@ span {
 }
 
 .banner-container {
-  background-image: url("/mynew-banner.png");
+  background-image: url("/Untitled.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -3153,7 +3153,7 @@ ul {
 
 @media (min-width: 769px) {
   .banner-container {
-    background-image: url("/mynew-banner.png");
+    background-image: url("/Untitled.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
